@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block</title>
+</head>
+<body>
+    <!-- 블록레벨 : 배경색이 가로줄 전체에 적용 -->
+    <h1 style="background-color: antiquewhite;width: 500px;">블록(Block) 레벨</h1>
+
+    <!-- 블록 레벨인 h1 태그를 인라인 처럼 쓰고 싶을 때 'display' -->
+    <h1 style="background-color:aqua; 
+        display: inline;">블록(Block) 레벨</h1>
+
+    <!-- p태그는 블록레벨이기 때문에 p태그 시작부터 끝까지 배경색 지정 -->
+    <p style="background-color: antiquewhite;">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br><br><br>
+        At sed quod inventore, dolor incidunt voluptatum temporibus 
+        dignissimos odio nemo quidem ab reiciendis hic enim tempore cum,<br> 
+        aliquid nesciunt, sequi repellat.</p>
+
+    <!-- div는 컨텐츠를 박스로 표현 / padding으로 영역 설정 -->
+    <div style="background-color: aquamarine; padding: 20px">
+        <h2 style="background-color:coral;">h2 heading tag</h2>
+    </div>
+
+    <p>
+        <div>div tag in the p tag</div>
+    </p>
+
+    <div>
+        <p>p tag in the div tag</p>
+    </div>
+
+</body>
+</html>
