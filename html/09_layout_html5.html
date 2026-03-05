@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Tag</title>
+</head>
+<body>
+    <!-- 큰 layout의 경우 html5부터는 div id="...." 보다 semantic tag 사용 -->
+    <!-- Header  -->
+    <head>
+        <div id="header-top">
+            <img src="../images/img01.jpg" width="50px" alt="LOGO">
+            <!-- 메뉴를 만들때는 nav 태그를 이용해서 공식처럼 사용 -->
+            <nav id="header-top-menu" style="display: inline-block;">
+                <ul style="display: flex;">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">LOGIN</a></li>
+                    <li><a href="#">회원가입</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">게시판</a></li>
+                </ul>
+            </nav>
+        </div>
+    </head>
+
+    <!-- Content  -->
+    <main>
+        <section>Sub Menu</section>
+        <section>Content</section>
+    </main>
+<hr>
+
+    <!-- Footer  -->
+     <footer>
+        <p>Copyright</p>
+        <nav id="footer-menu">
+            <ul style="display: flex;">
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">채용안내</a></li>
+            </ul>
+        </nav>
+     </footer>
+</body>
+</html>

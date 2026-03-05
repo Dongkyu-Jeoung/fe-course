@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+</head>
+<body>
+    <!-- Header -->
+    <div id="Header">
+        <div id="header-top">
+            <img src="../images/img01.jpg" width="50px" alt="LOGO">
+            <!-- 메뉴를 inline-block으로 만들어서 이미지 옆에 붙도록 -->
+            <div id="header-top-menu" style="display: inline-block;">
+                <!-- li태그들이 1줄로 붙어서 나타나도록 :flex -->
+                <ul style="display: flex;">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">LOGIN</a></li>
+                    <li><a href="#">회원가입</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">게시판</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="header-bottom">Header bottom</div>
+    </div>
+    <hr>
+
+    <!-- Content -->
+    <div id="content">
+        <div>Sub Menu</div>
+        <div>Content</div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <p>Copyright ~~</p>
+    </div>
+</body>
+</html>
