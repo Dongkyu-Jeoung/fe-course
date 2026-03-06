@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 폼</title>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <!-- action에는 백엔드 서버 주소입력 -->
+    <!-- method : GET / POST default : GET-->
+    <form action="#" method="GET">
+        <fieldset>
+            <legend>개인정보 입력란</legend>
+            <ul>
+                <li>
+                    <label for="id">아이디</label>
+                    <input type="text" name="id">
+                </li>
+                <li>
+                    <!-- 패스워드 입력시 안보이게 하는거 type:password -->
+                    <label for="password">패스워드</label>
+                    <input type="password" name="password">
+                </li>
+                <li>
+                    <label for="name">이름</label>
+                    <input type="text" name="name">
+                </li>
+                
+                <!-- 안에 있는 애들 묶어서 박스로 표시해줌 -->
+                <fieldset>
+                    <!-- 필드셋 제목을 달아줌 -->
+                    <legend>주소 선택 태그</legend>
+                    <li>
+                        <label for="address1">주소1</label>
+                        <input type="text" name="address1">
+                    </li>
+                    <li>
+                        <label for="address2">주소2</label>
+                        <!-- name 값을 같게 주면 그 중 1개만 선택가능 -->
+                        <!-- name 값을 다르게 주면 다중선택 가능 -->
+                        <!-- value를 지정 안해주면 체크 여부(on/off만 넘어감) -->
+                        <input type="radio" name="address2" value="Seoul"> <span>서울시</span>
+                        <input type="radio" name="address2" value="Busan"> <span>부산시</span>
+                        <input type="radio" name="address2" value="Incheon"> <span>인천시</span>
+                    </li>
+                    <li>
+                        <label for="address3">주소3</label>
+                        <!-- check box 사용시 다중선택 가능 -->
+                        <input type="checkbox" name="address3" value="Seoul"> <span>서울시</span>
+                        <input type="checkbox" name="address3" value="Busan"> <span>인천시</span>
+                        <input type="checkbox" name="address3" value="Incheon"> <span>부산시</span>
+                    </li>
+                    <li>
+                        <label for="address4">주소4</label>
+                        <select name="address4">
+                            <option value="선택">선택하세요</option>
+                            <option value="Seoul">서울시</option>
+                            <option value="Incheon">인천시</option>
+                            <option value="Busan">부산시</option>
+                        </select>
+                    </li>
+                </fieldset>
+
+                <li>
+                    <label for="birthday">생년월일</label>
+                    <input type="date" name="birthday">
+                </li>
+                <li>
+                    <label for="photo">프로필 사진</label>
+                    <input type="file" name="photo">
+                </li>
+                <li>
+                    <label for="intro">자기소개</label>
+                    <textarea name="intro" 
+                        cols="50" rows="10"
+                        placeholder="100자 이내로 작성해주주세요"></textarea>
+                </li>
+
+
+                <!-- type : submit, reset, button / default:submit -->
+                <li>
+                    <!-- submit은 event있음. action을 찾아감 -->
+                    <button type="submit">전송</button>
+                    <!-- button은 event X / 모양만 있음 -->
+                    <button type="button">전송(이벤트X)</button>
+                    <button type="reset">전송(다시쓰기)</button>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+</body>
+</html>

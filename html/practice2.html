@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 폼</title>
+</head>
+<body>
+    <!-- 전체 회원가입 폼 -->
+    <form action="#" method="GET">
+        <!-- 전체 큰 틀 -->
+        <fieldset>
+            <h1>회원가입</h1>
+
+            <!-- 첫번째 박스 : 필수항목 -->
+            <fieldset>
+                <span>필수항목</span>
+                <!-- 아이디 -->
+                <div>
+                    <label for="id">아이디</label>
+                </div>
+                <div>
+                    <input type="text" name="id">
+                </div>
+                <!-- 비밀번호 -->
+                <div>
+                    <label for="password">비밀번호</label>
+                </div>
+                <div>
+                    <input type="password" name="password">
+                </div>
+                <!-- 이메일 -->
+                <div>
+                    <label for="email">이메일</label>
+                </div>
+                <div>
+                    <input type="email" name="email"
+                        placeholder="example@example.com">
+                </div>
+                <!-- 이름 -->
+                <div>
+                    <label for="name">성명</label>
+                </div>
+                <div>
+                    <input type="text" name="name"
+                        placeholder="홍길동">
+                </div>
+                <!-- 나이 -->
+                <div>
+                    <label for="age">나이</label>
+                </div>
+                <div>
+                    <input type="number" name="age">
+                </div>
+            </fieldset>
+
+            <!-- 두번째 박스: 당신에 대해서 알고 싶어요 -->
+            <fieldset>
+                <span>당신에 대해서 알고 싶어요!</span>
+                <!-- 취미 -->
+                <div>
+                    <label for="hobby">취미를 선택해 주세요.</label>
+                </div>
+                <div>
+                    <input type="radio" name="hobby">
+                        <span>게임하기</span>
+                    <input type="radio" name="hobby">
+                        <span>음악듣기</span>
+                    <input type="radio" name="hobby">
+                        <span>아이스음료 마시기</span>
+                </div>
+                <!-- 음료 -->
+                <div>
+                    <label for="beverage">좋아하는 음료를
+                        선택해주세요.(중복선택가능)</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="shake">
+                        <span>쉐이크 종류 음료</span>
+                    <input type="checkbox" name="tea">
+                        <span>티 종류 음료</span>
+                    <input type="checkbox" name="coffee">
+                        <span>커피 종류 음료</span>
+                </div>
+                <!-- 동아리 참석 가능 날짜 -->
+                <div>
+                    <label for="date">동아리 참석 가능 날짜 : </label>
+                    <input type="date" name="date">
+                </div>
+                <!-- 참여 희망 모임 -->
+                <div>
+                    <label for="party">얼.죽.아에서 참여하고 싶은 모임은? : </label>
+                    <select name="party">
+                        <option value="선택">--선택해주세요--</option>
+                        <option value="americano">아메리카노</option>
+                        <option value="latte">라떼</option>
+                        <option value="vanilla">바닐라</option>
+                    </select>
+                </div>
+                <!-- 포트폴리오 제출란 -->
+                <div>
+                    <label for="portfolio">포트폴리오 제출하기</label>
+                </div>
+                <div>
+                    <input type="file">
+                </div>
+                <!-- 마지막 말 -->
+                <div>
+                    <label for="message">마지막으로 하고 싶은 말은?</label>
+                </div>
+                <div>
+                    <textarea name="message"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- 완료버튼 -->
+            <div>
+                <button type="reset">다시하기</button>
+            </div>
+            <div>
+                <button type="submit">제출하기</button>
+            </div>
+            
+        </fieldset>
+    </form>
+</body>
+</html>

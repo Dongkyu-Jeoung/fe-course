@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹개발 교육 상담 문의</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <h1>웹 개발 교육 상담 문의</h1>
+        <p>
+            HTML, CSS, JavaScript, React, 프론트엔드
+            교육 과정에 대해 궁금한 내용을 남겨주세요.
+            담당자가 확인 후 안내해 드립니다.
+        </p>
+        <form action="#" method="GET">
+            <fieldset>
+                <legend>상담 신청 정보</legend>
+
+                <!-- 입력 한줄을 article / div로 묶어준다 -->
+                
+                <!-- 이름 -->
+                <article>
+                    <label for="name">이름<sup>*</sup></label>
+                    <input type="text" name="name" placeholder="이름을 입력하세요">
+                    <p>실명을 입력해 주세요.</p>
+                </article>
+                <!-- 이메일 -->
+                <article>
+                    <label for="email">이메일<sup>*</sup></label>
+                    <input type="text" name="emial" placeholder="example@email.com">
+                    <p>답변을 받을 이메일 주소를 입력해주세요</p>
+                </article>
+                <!-- 연락처 -->
+                <article>
+                    <label for="phone">연락처</label>
+                    <input type="tel" name="phone" placeholder="010-0000-0000">
+                </article>
+                <!-- 관심과정 -->
+                <article>
+                    <label for="course">관심 과정</label>
+                    <select name="course">
+                        <option value="선택">선택하세요</option>
+                        <option value="html-css">HTML/CSS 기초</option>
+                        <option value="javascript">JavaScript 입문</option>
+                        <option value="react">React 프론트엔드</option>
+                        <option value="fullstack">FullStack 웹 개발</option>
+                    </select>
+                </article>
+                <!-- 문의내용 -->
+                <article>
+                    <label for="message">문의내용<sup>*</sup></label>
+                    <textarea name="message" 
+                        placeholder="궁금한 내용을 자세히 입력해주세요"></textarea>
+                        <p>예: 수업 일정, 수강 대상, 비용, 프로젝트 중심 수업 여부 등</p>
+                </article>
+                <!-- 개인정보 동의 -->
+                <article>
+                    <input type="checkbox" name="agree">
+                    <label for="agree">개인정보 수집 및 이용에 동의합니다.<sup>*</sup></label>
+                </article>
+                <!-- 완료버튼 -->
+                <article>
+                    <button type="button">상담 문의 보내기</button>
+                </article>
+            </fieldset>
+        </form>
+    </main>
+    <footer></footer>
+</body>
+</html>
