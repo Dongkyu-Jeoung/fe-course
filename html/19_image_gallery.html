@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        /* 스타일 파트가 너무 길어질 수 있으니 따로 css 파일로 관리 */
+        ul{
+            /* property: value; */
+            /* li앞에 오는 o모양 조정 */
+            list-style-type:none;
+            /* li들을 한줄로 나타나게끔 */
+            display: flex;
+            gap: 10px;
+        }
+
+        /* li, article 내용이 똑같기 때문에 */
+        li, article{
+            border: 1px solid lightgray;
+        }
+        div{
+            text-align: center;
+            padding: 15px;
+            padding-bottom: 20px;
+        }
+        img{
+            width: 200px;
+        }
+        /* article{
+            border: 1px solid lightgray;
+        } */
+        section{
+            display: flex;
+            gap: 10px;
+        }
+        figcaption{
+            text-align: center;
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>Image Gallery : ul</h1>
+
+    <ul>
+        <li>
+            <img src="https://www.w3schools.com/css/img_5terre.jpg" 
+                alt="Cinque Terre">
+            <div>Cinque Terre</div>
+        </li>
+        <li>
+            <img src="https://www.w3schools.com/css/img_forest.jpg" 
+                alt="Green Forest">
+            <div>Green Forest</div>
+        </li>
+        <li>
+            <img src="https://www.w3schools.com/css/img_lights.jpg" 
+                alt="Northern Lights">
+            <div>Northern Lights</div>
+        </li>
+        <li>
+            <img src="https://www.w3schools.com/css/img_mountains.jpg" 
+                alt="Mountains">
+            <div>Mountains</div>
+        </li>
+    </ul>
+    <hr>
+
+    <h1>Image Gallery : semantic</h1>
+    <section>
+        <article>
+            <figure>
+                <img src="https://www.w3schools.com/css/img_5terre.jpg" 
+                    alt="Cinque Terre">
+                <figcaption>
+                    <p>Cinque Terre</p>
+                </figcaption>
+            </figure>
+        </article>
+        <article>
+            <figure>
+                <img src="https://www.w3schools.com/css/img_5terre.jpg" 
+                    alt="Cinque Terre">
+                <figcaption>
+                    <p>Cinque Terre</p>
+                </figcaption>
+            </figure>
+        </article>
+        <article>
+            <figure>
+                <img src="https://www.w3schools.com/css/img_5terre.jpg" 
+                    alt="Cinque Terre">
+                <figcaption>
+                    <p>Cinque Terre</p>
+                </figcaption>
+            </figure>
+        </article>
+    </section>
+</body>
+</html>

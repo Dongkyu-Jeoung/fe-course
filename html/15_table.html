@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+    <h1>Table</h1>
+    <!-- border 값이 지정돼야만 나타남 default 1 -->
+    <table border="1">
+        <!-- tr : table row / td : table data -->
+         <!-- thead,tbody,tfoot 태그는 코드 가독성을 높이는 semantic tag -->
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>상품명</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <!-- rowspan : 줄병합, 다음 row에 해당하는 td 삭제(주석) -->
+                <td rowspan="2">1</td>
+                <td>모니터</td>
+                <td>1000</td>
+            </tr>
+            <tr>
+                <!-- <td>2</td> -->
+                <td>키보드</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>마우스</td>
+                <td>3000</td>
+            </tr>
+            <tr>
+                <td colspan="3">4</td>
+            </tr>
+
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <!-- th태그 사용하면 진한 글체로 나옴 -->
+                <!-- colspan 사용 하면 지정된 숫자만큼 칸병합 -->
+                <th colspan="2">합계</th>
+                <!-- <th></th> -->
+                <th>6000</th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

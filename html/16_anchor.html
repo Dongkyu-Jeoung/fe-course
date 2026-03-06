@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anchor</title>
+</head>
+<body>
+    <h1>Anchor</h1>
+    <!-- url 주소를 입력 -->
+    <h3>절대경로</h3>
+    <!-- #은 자기자신 파일 주소 => 눌러도 아무일도 안일어남 -->
+    <a href="#">###</a>
+    <a href="http://www.naver.com">네이버</a>
+    <!-- target 으로 새창에 띄울지 현재창에서 바로열지 설정 default : _self -->
+    <a href="http://www.google.com" target="_blank">Google</a>
+    <a href="https://cf.lottecinema.co.kr//Media/MovieFile/MovieImg/202602/23816_503_1.jpg"
+        target="_blank">왕사남</a>
+    <hr>
+
+    <!-- 가지고 있는 파일명을 통해 접속 -->
+    <!-- 성능상 상대경로 접속이 더 빠름 -->
+    <h3>상대경로</h3>
+    <a href="15_table.html" target="_blank">테이블 실습</a>
+    <a href="12_list.html">리스트 실습</a>
+    <a href="../images/img01.jpg" target="_blank">이미지</a>
+    <a href="../images/king.jpg" target="_blank">왕사남</a>
+    <a href="http://127.0.0.1:5500/images/img01.jpg" target="_blank">이미지-절대</a>
+    <hr>
+
+    <h3>파일 다운로드</h3>
+    <!-- 확장자가 zip파일이어야 다운로드 가능 -->
+    <a href="download/images.zip">이미지모음 다운로드</a>
+</body>
+</html>
