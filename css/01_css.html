@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 사용법</title>
+    <meta name="description" content="CSS 사용법을 익히는 예제입니다">
+    <!-- style element 활용한 Internal 방식 -->
+    <style>
+        h2{
+            color: cadetblue;
+        }
+        span{
+            color: black;
+        }
+    </style>
+    <link rel="stylesheet" href="external.css">
+</head>
+<body>
+    <!-- 
+        1. Inline 방식 : HTML element(tag)에 CSS style attribute 추가
+        2. Internal 방식 : HTML <head> element에 <style> element 추가
+            - selector 사용
+        3. External 방식 : style 속성을 별도의 .css 파일로 저장하고
+            필요시 <link>로 호출
+    -->
+    <h1 style="color: blue;">CSS 사용법</h1>
+
+    <h2><span>1.</span> Inline</h2>
+    <h2><span>2.</span> Internal</h2>
+    <h2><span>3.</span> External</h2>
+</body>
+</html>

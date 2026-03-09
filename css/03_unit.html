@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS-Unit</title>
+    <meta name="description" content="CSS Unit에 대한 페이지입니다">
+    <style>
+        h1 {
+            width: 110px;
+            background-color: brown;
+        }
+        #pixel {
+            width: 500px;
+            background-color: yellow;
+        }
+        #percent {
+            width: 30%;
+            background-color: tomato;
+        }
+        /* 1.5em -> 현재 보여주는 크기의 1.5배 */
+        #h5_pixel { 
+            font-size: 1.5em; 
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS_Unit</h1>
+
+    <!-- pixel 값을 지정하면 display에 관계없이 고정값 -->
+    <h2 id="pixel">pixel(px)</h2>
+    <div>
+        <h5 id="h5_pixel">CSS-Pixel</h5>
+        <p>Lorem ipsum dolor sit amet consectetur, 
+            adipisicing elit. 
+            Odit asperiores praesentium hic voluptate, 
+            excepturi reprehenderit quasi optio possimus laboriosam nisi voluptatem, 
+            ea vel atque consequatur qui cupiditate totam velit repudiandae.</p>
+    </div>
+
+    <!-- percent로 값을 지정하면 보고있는 display에 따라 비율 맞춰서 보여짐 -->
+    <h2 id="percent">percent(%)</h2>
+    <div>
+        <h5>CSS-Percent</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quisquam laudantium possimus qui maiores commodi tempore distinctio, quas, ipsam sapiente harum sint, iusto rerum porro aspernatur deserunt similique est facere.</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Selector</title>
+    <meta name="description" content="Universal Selector">
+    <!-- 구글 폰트 가져오는 법 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* 공통 프로퍼티를 변수로 정의 */
+            --color-main: aquamarine;
+            --color-font: red;
+        }
+        /* 전체 영역에 공통적인 속성을 정의하는 경우 */
+        * {
+            background-color: var(--color-main);
+            /* 1,2 순위 글꼴 설정 */
+            /* font-family: 'Courier New', '맑은 고딕'; */
+            font-family: "Open Sans", sans-serif;
+            /* block level 들의 경우 기본적으로 여백이 생기는데 이를 조절 가능 */
+            margin: 0;
+        }
+        h1 {
+            color: var(--color-font);
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+    <h1>Universal(All) Selector</h1>
+    <div>
+        <h3>Sub Title</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste maiores ad perspiciatis possimus ea. Blanditiis, sit neque maiores amet eveniet consequatur nostrum vero molestias suscipit magni, sunt architecto quos deserunt!</p>
+    </div>
+</body>
+</html>
