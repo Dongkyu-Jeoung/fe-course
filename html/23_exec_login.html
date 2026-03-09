@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <h1>Login Form</h1>
+    <!-- 입력하는 부분 : 아이디 / 비번만 폼으로 해도됨 -->
+    <form action="#" method="get">
+        <ul>
+            <li><i class="fas fa-crown"></i></li>
+            <li>
+                <img src="../images/king.jpg" alt="프로필 이미지"
+                    width="200" height="250">
+            </li>
+            <li>
+                <label for="name">
+                    <i class="fas fa-envelope-open"></i>
+                </label>
+                <input type="text" name="name">
+            </li>
+            <li>
+                <label for="pass">
+                    <i class="fas fa-lock"></i>
+                </label>
+                <input type="password" name="pass">
+            </li>
+            <li>
+                <input type="radio" name="save" value="remember">
+                    <span>Remember me</span>
+                <input type="radio" name="save" value="forgot">
+                    <span>Forgot your password?</span>
+            </li>
+            <li>
+                <button type="submit">Login</button>
+            </li>
+        </ul>
+    </form>
+</body>
+</html>

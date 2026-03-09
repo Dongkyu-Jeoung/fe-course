@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO-Image</title>
+    <meta name="description" content="seo 기준 이미지를 로딩중 입니다.">
+</head>
+<body>
+    <h1>Image</h1>
+    <!-- inline-block이라 옆으로 붙음 -->
+    <img src="../images/img01.jpg" alt="이미지1" 
+        width="200" height="200" loading="lazy">
+    <!-- loading: eager : 미리 이미지 읽어놈 / lazy : 이미지 출력할 때 읽음 -->
+    <img src="../images/king.jpg" alt="이미지2" 
+        width="300" height="400" loading="lazy">
+    <!-- header, footer 처럼 계속 보여지는 이미지는 eager 타입
+        메뉴 마다 존재하는 이미지는 lazy로 (처음부터 읽어놓을 필요 없음) -->
+    
+
+    <!-- 사용할 이미지가 정해지지 않았을 때 사용가능 / 크기 잡아놓는 용도 -->
+    <img src="http://picsum.photos/300/200" alt="dummy image" 
+        width="300" height="200" loading="lazy">
+
+</body>
+</html>
