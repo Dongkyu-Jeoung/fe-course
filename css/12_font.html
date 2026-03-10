@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Style</title>
+    <meta name="description" content="Font Style">
+    <!-- Google font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        h1 {font-size: 3em;}
+        .opensans {
+            font-family: "Open Sans";
+            font-size: small;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+        .roboto {
+            font-family: Roboto;
+            font-size: 16px;
+        }
+        .nanum {
+            font-family: 'Nanum Gothic';
+            font-size: 1.5em;
+        }
+        .point {
+            color: red;
+            font-style: italic;
+            font-weight: bold;
+            /* text-decoration: underline;
+            text-decoration-color: blue;
+            text-decoration-style: dashed; */
+            text-decoration: solid blue underline;
+            text-underline-offset: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Font Style</h1>
+    <h3>Open Sans</h3>
+    <p class="opensans">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam voluptas in non quidem dolore asperiores molestias cum earum quis eius illum optio animi voluptatibus, obcaecati placeat sit dolores reprehenderit cupiditate!</p>
+
+    <h3>Robot</h3>
+    <p class="roboto">Lorem ipsum dolor sit amet, 
+        <span class="point">consectetur adipisicing elit.</span> Laboriosam voluptas in non quidem dolore asperiores molestias cum earum quis eius illum optio animi voluptatibus, obcaecati placeat sit dolores reprehenderit cupiditate!</p>
+
+    <h3>나눔고딕(Nanum Gothic)</h3>
+    <p class="nanum">이 선언의 어떠한 규정도 어떤 국가, 집단 또는 개인에게 이 선언에 규정된 어떠한 권리와 자유를 파괴하기 위한 활동에 가담하거나 또는 행위를 할 수 있는 권리가 있는 것으로 해석되어서는 아니된다.
+        모든 인류 구성원의 <span class="point">천부의 존엄성과 동등</span>하고 양도할 수 없는 권리를 인정하는 것이 세계의 자유, 정의 및 평화의 기초이며,</p>
+    
+</body>
+</html>

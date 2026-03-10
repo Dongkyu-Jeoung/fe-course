@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Allign</title>
+    <meta name="description" content="Text Allign">
+    <style>
+        p{ background-color: bisque; }
+        span{ background-color: rgb(192, 187, 183); }
+        div { border : solid 1px red; }
+
+        .b_left { 
+            text-align: left; 
+            letter-spacing: 10px; 
+            text-indent: 50px;
+            /* block 왼쪽 외부에 100px 여백 생성 */
+            margin-left: 100px;
+        }
+        .b_right { text-align: right; word-spacing: 20px;}
+        .b_center { text-align: center; }
+        /* justify : 양쪽 정렬 */
+        .b_justify {
+            width: 300px;
+            text-align: justify; 
+            text-transform: uppercase;
+        }
+
+        /* span 태그는 inline level이라 정렬이 안됨 */
+        .i_left { 
+            text-align: left; 
+            letter-spacing: 10px;
+            /* inline-level 에서는 indent 적용 ❌ */
+            /* text-indent: 50px;  */
+            padding-left: 50px;
+        }
+        .i_right { text-align: right; }
+        .i_center { text-align: center; }
+
+        .d1 { text-align: left; }
+        .d2 { text-align: right; }
+        .d3 { text-align: center; letter-spacing: 20px; }
+
+        img {
+            width: 100px; height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Allign</h1>
+    <h3>Block Level</h3>
+    <p class="b_left">text allign :: left</p>
+    <p class="b_right">text allign :: right</p>
+    <p class="b_center">text allign :: center</p>
+    <p class="b_justify">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe sequi non voluptates. Soluta similique consequuntur perspiciatis amet alias quod, dicta quaerat laboriosam, culpa id nemo iste rerum, expedita saepe minima!</p>
+    
+    <h3>Inline Level</h3>
+    <span class="i_left">text allign :: left</span>
+    <span class="i_right">text allign :: right</span>
+    <span class="i_center">text allign :: center</span>
+    <hr>
+    <div class="d1">
+        <span class="i_left">text allign :: left</span>
+        <button>클릭하세요</button>
+        <a href="#">링크링크</a>
+    </div>
+    <div class="d2"><span class="i_right">text allign :: right</span></div>
+    <div class="d3"><span class="i_center">text allign :: center</span></div>
+    
+    <h3>Inline-Block Level</h3>
+    <div class="d3">
+        <img src="../images/king.jpg" alt="이미지">
+        <img src="../images/king.jpg" alt="이미지">
+        <img src="../images/king.jpg" alt="이미지">
+        <img src="../images/king.jpg" alt="이미지">
+    </div>
+    
+</body>
+</html>

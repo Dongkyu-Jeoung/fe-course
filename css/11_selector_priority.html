@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector Priority</title>
+    <meta name="description" content="Selector Priority">
+    <style>
+        /* 
+            !important > inline-style > id > class, pseudo, attribute > Tag(element) > * (all selector)
+        */
+        /* body 태그안의 모든 */
+        * {background-color: silver;}
+        h1 {background-color: aquamarine;}
+        div {background-color: tomato;}
+        p {background-color: yellow;}
+        /* id가 class보다 우선순위가 높기 때문에 빨간 글씨 (important 없을 때)*/
+        #p1 {color: red;}
+        .p2 { color:green !important; }
+        
+    </style>
+</head>
+<body>
+    <h1>Selector Priority</h1>
+    <div>
+        <!-- inline-style이 제일 우선되어 적용 (important 없을 때)-->
+        <p id="p1" class="p2" style="color:blue;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex nostrum ad deserunt et minus, soluta, similique maxime deleniti adipisci magnam at libero animi neque velit officia corrupti nulla. Eum, cupiditate.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex nostrum ad deserunt et minus, soluta, similique maxime deleniti adipisci magnam at libero animi neque velit officia corrupti nulla. Eum, cupiditate.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex nostrum ad deserunt et minus, soluta, similique maxime deleniti adipisci magnam at libero animi neque velit officia corrupti nulla. Eum, cupiditate.</p>
+    </div>
+</body>
+</html>
