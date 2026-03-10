@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descendent Selector</title>
+    <meta name="description" content="Descendent Selector">
+    <style>
+        /* 
+            descendent selector : 조상[space]자손
+            child selector : 부모[>]자식
+            siblings selector : 기준태그[+]형제태그
+            모든 siblings selector : 기준태그[~]형제태그
+        */
+        h1 {
+            color: blue;
+            background-color: beige;
+        }
+        body li ul {
+            background-color: yellow;
+        }
+        /* menu1만 빨간색을 주고 싶은데, li 아래있는 a태그 전부 적용 */
+        /* nav ul li a {
+            color: red;
+        } */
+
+        #main_menu>a{
+            color: red;
+            /* 링크 언더라인 지우기 */
+            text-decoration: none;
+        }
+
+        #main_menu + li {
+            color: aquamarine;
+        }
+        #main_menu + li > a {
+            color: aquamarine;
+            text-decoration: none;
+        }
+
+        /* h2에 인접한 p태그 한개 */
+        h2 + p {
+            color: brown;
+        }
+        /* h2 기준 모든 p 형제들 */
+        h2 ~ p {
+            background-color: silver;
+        }
+    </style>
+</head>
+<body>
+    <h1>Descendent Selector</h1>
+    <nav>
+        <ul>
+            <li id="main_menu">
+                <a href="#">menu1</a>
+                <ul>
+                    <li><a href="#">sub-menu</a></li>
+                    <li><a href="#">sub-menu</a></li>
+                </ul>
+            </li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+        </ul>
+    </nav>
+    <h2>Sibling Selector</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit mollitia a aperiam officia culpa enim quia quisquam voluptas voluptatibus possimus obcaecati odio facere architecto ducimus aliquam omnis eaque, dolores inventore!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit mollitia a aperiam officia culpa enim quia quisquam voluptas voluptatibus possimus obcaecati odio facere architecto ducimus aliquam omnis eaque, dolores inventore!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit mollitia a aperiam officia culpa enim quia quisquam voluptas voluptatibus possimus obcaecati odio facere architecto ducimus aliquam omnis eaque, dolores inventore!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit mollitia a aperiam officia culpa enim quia quisquam voluptas voluptatibus possimus obcaecati odio facere architecto ducimus aliquam omnis eaque, dolores inventore!</p>
+</body>
+</html>
