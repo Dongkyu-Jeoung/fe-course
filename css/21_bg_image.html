@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image</title>
+    <style>
+        * { color: azure; }
+        body{
+            /* width: 500px;
+            height: 500px;
+            border: 1px solid blue; */
+            /* width, height 없이 하면 안나옴 */
+            background-image: url("../images/pattern1.jpg");
+            /* default 값은 이미지 반복(repeat). 반복 안하고 싶으면 no-repeat */
+            background-repeat: repeat;
+        }
+        img {border: 1px red solid;}
+    </style>
+</head>
+<body>
+    <h1>Background Image</h1>
+    <div></div>
+    <img src="../images/pattern1.jpg" alt="pattern1">
+    <!-- <img src="../images/pattern2.jpg" alt="pattern2"> -->
+</body>
+</html>

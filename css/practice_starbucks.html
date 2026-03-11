@@ -66,6 +66,9 @@
             padding: 3px;
             cursor: pointer;
         }
+        .search_btn:hover input{
+            display : inline;
+        }
     </style>
 </head>
 <body>
@@ -82,12 +85,14 @@
                     <li><a href="#">My Starbucks</a></li>
                     <li><a href="#">Customer Sevice & Ideas</a></li>
                     <li><a href="#">Find Store</a></li>
-                    <input type="text" name="search" id="search" placeholder="통합검색">
-                    <label for="search">
-                        <button class="search_btn">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </label>
+                    <li>
+                        <label for="search">
+                            <button class="search_btn">
+                                <input type="text" name="search" id="search" placeholder="통합검색">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </label>
+                    </li>
                 </ul>
                 <!-- menu bottom -->
                 <ul class="menu_bottom">

@@ -9,7 +9,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         header {
-            width: 900px;
+            width: 1300px;
             /* 900px 짜리 */
             margin: auto;
         }
@@ -20,6 +20,10 @@
             padding-bottom: 0px;
             border-bottom: 1px solid lightgrey;
         }
+        img[alt="LOGO"]{
+            width: 250px;
+            height: 40px;
+        }
         .nav ul{
             display: flex;
             padding-left: 0px;
@@ -27,12 +31,43 @@
             gap: 13px;
         }
         .nav {
-            font-size: 9px;
+            font-size: 14px;
         }
         .nav a{
             color: rgb(84, 84, 84);
             text-decoration: none;
         }
+        .nav_bottom_main{
+            display: flex;
+            list-style-type: none;
+            padding-left: 0px;
+            gap: 0px;
+        }
+        .nav_bottom_main a{
+            color: black;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        .header_bottom{
+            display: flex;
+            justify-content: right;
+        }
+        .nav_bottom_main{
+            position :absolute;
+            left : 50%;
+            transform: translateX(-50%);
+        }
+        .nav_bottom_main a{
+            display: block;
+            width: 100px;
+            height: 40px;
+            /* border-right: 1px #666 solid; */
+            align-content: center;
+            text-align: center;
+        }       
+        .nav_bottom_main a:hover {
+            border-bottom: 3px red solid;
+        } 
     </style>
 </head>
 <body>
@@ -47,7 +82,7 @@
                 </ul>
             </nav>
             <!-- 로고 -->
-            <div>
+            <div class="logo">
                 <a href="#">
                     <img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/logo.png" 
                         alt="LOGO">
@@ -62,6 +97,31 @@
                     <li><a href="#">로그인</a></li>
                 </ul>
             </nav>
+        </div>
+        <!-- header 두번째 줄 -->
+        <div class="header_bottom">
+            <!-- 메인메뉴 -->
+            <div>
+                <nav>
+                    <ul class="nav_bottom_main">
+                        <li><a href="#">예매</a></li>
+                        <li><a href="#">영화</a></li>
+                        <li><a href="#">영화관</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">스토어</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- 서브메뉴 -->
+            <div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href=""><i class="fas fa-user"></i> 회원가입</a></li>
+                        <li><a href=""><i class="fas fa-ticket-alt"></i> 바로예매</a></li>
+                        <li><a href=""><i class="fas fa-bars"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 </body>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow</title>
+    <style>
+        p { margin: 50px; }
+        
+        .p1 {
+            width: 90px;
+            height: 200px;
+            background-color: beige;
+            /* 넘치는 부분 확인 할 수 있도록 scroll 생성 */
+            /* overflow: auto; */
+            /* x,y 축 따로 설정 가능 */
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .p2 {
+            width: 500px;
+            height: 500px;
+            background-color: lightblue;
+            overflow-x: hidden;
+        }
+        .p3 {
+            width: 400px;
+            height: 100px;
+            background-color: pink;
+            /* 넘치는 부분 숨겨버림 */
+            overflow: hidden;
+        }
+        img{ width: 600px; height: 400px; }
+    </style>
+</head>
+<body>
+    <h1>Overflow</h1>
+    <p class="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam perferendis possimus laborum veniam dolorem, libero rerum illum quaerat deleniti explicabo quia rem ratione quibusdam ex error, fugiat eius. Ipsum, soluta.</p>
+    <div  class="p2">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam perferendis possimus laborum veniam dolorem, libero rerum illum quaerat deleniti explicabo quia rem ratione quibusdam ex error, fugiat eius. Ipsum, soluta.
+        </p>
+        <img src="../images/king.jpg" alt="img1">
+    </div>
+    <p class="p3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam perferendis possimus laborum veniam dolorem, libero rerum illum quaerat deleniti explicabo quia rem ratione quibusdam ex error, fugiat eius. Ipsum, soluta.</p>
+</body>
+</html>
