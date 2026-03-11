@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Style</title>
+    <meta name="description" content="Display Style">
+    <style>
+    /* display property : block, inline, inline-block level 전환 */
+        div {
+            /* block, inline-block level은 width, height 적용 ⭕ */
+            /* inline level은 width, height 적용 ❌ */
+            width: 50%;
+            height: 100px;
+            display: block;
+            background-color: bisque;
+        }
+        span {
+            display: block;
+            background-color: tomato;
+        }
+        img {
+            display: block;
+            width: 200px;
+            height: 200px;
+        }
+        /* 일부 inline 태그 중 width, height 적용 되는 애들 있음 */
+        button, input {
+            width : 100px;
+            height : 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display Style</h1>
+    <hr>
+    <div>block level</div>
+    <img src="../images/king.jpg" alt="inline-block image">
+    <span>inline level</span>
+    <button>로그인</button>
+    <input type="text">
+</body>
+</html>

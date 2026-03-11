@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Layout Style</title>
+    <meta name="description" content="Display Layout Style">
+    <style>
+        .d1 p{
+            display: inline-block;
+            margin: 0;
+            width: 200px;
+            height: 250px;
+            background-color: aquamarine;
+        }
+        .d2>div{
+            border: 1px solid lightgray;
+            display: flex;
+            gap: 20px;
+            /* 정렬 : left, right, center, space-between(양쪽) */
+            justify-content: center;
+        }
+        .d2 p { 
+            background-color: orange; 
+            width: 200px;
+            height: 250px;
+        }
+        .d3{ border: 1px solid lightgrey; }
+        .d3 ul{
+            display: flex;
+            gap: 20px;
+            list-style-type: none;
+            justify-content: right;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display Layout Style</h1>
+    <div class="d1">
+        <h3>Layout1 : inline-block 전환</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nesciunt, soluta officiis nisi vel sequi magni totam voluptatem natus in adipisci ut voluptates provident vero expedita alias facilis aliquid labore.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nesciunt, soluta officiis nisi vel sequi magni totam voluptatem natus in adipisci ut voluptates provident vero expedita alias facilis aliquid labore.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nesciunt, soluta officiis nisi vel sequi magni totam voluptatem natus in adipisci ut voluptates provident vero expedita alias facilis aliquid labore.</p>
+    </div>
+
+    <div class="d2">
+        <h3>Layout 2 : flex 적용</h3>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nesciunt, soluta officiis nisi vel sequi magni totam voluptatem natus in adipisci ut voluptates provident vero expedita alias facilis aliquid labore.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nesciunt, soluta officiis nisi vel sequi magni totam voluptatem natus in adipisci ut voluptates provident vero expedita alias facilis aliquid labore.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nesciunt, soluta officiis nisi vel sequi magni totam voluptatem natus in adipisci ut voluptates provident vero expedita alias facilis aliquid labore.</p>
+        </div>
+    </div>
+    <div class="d3">
+        <h3>Layout 3 : flex 적용</h3>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+        </ul>
+    </div>
+</body>
+</html>

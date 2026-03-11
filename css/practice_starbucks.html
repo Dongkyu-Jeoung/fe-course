@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 폰트어썸 CDN -->
+    <link rel="stylesheet"
+       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    
+    <style>
+        * { font-family: "Nanum Gothic";}
+        body { margin: 0px;}
+        header { background-color: rgb(246,245,239);}
+        .header_top {
+            max-width: 800px;
+            width: 100%;
+            margin: auto;
+        }
+        ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+        #logo_img {
+            width:80px;
+            height: 80px;
+        }
+        .menu_top {
+            justify-content: right;
+            padding-right: 30px;
+        }
+        .menu_top a:hover {
+            text-decoration: underline;
+        }
+        .menu_bottom a:hover {
+            color: green;
+            text-decoration: underline;
+        }
+        .menu_top a{
+            color: rgb(79, 79, 79);
+            font-size: 10px;
+            text-decoration: none;
+        }
+        .menu_bottom a{
+            color: rgb(79, 79, 79);
+            font-size: 13px;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+        input {display: none;}
+        .header_top{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 10px; 
+        }
+        .search_btn {
+            border: .5px solid lightgray;
+            border-radius: 4px;
+            background-color: white;
+            padding: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header_top">
+            <a href="#">
+                <img src="https://www.starbucks.co.kr/common/img/common/logo.png" 
+                    alt="LOGO" id="logo_img">
+            </a>
+            <div class="header_menu">
+                <!-- menu top -->
+                <ul class="menu_top">
+                    <li><a href="#">Sign In</a></li>
+                    <li><a href="#">My Starbucks</a></li>
+                    <li><a href="#">Customer Sevice & Ideas</a></li>
+                    <li><a href="#">Find Store</a></li>
+                    <input type="text" name="search" id="search" placeholder="통합검색">
+                    <label for="search">
+                        <button class="search_btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </label>
+                </ul>
+                <!-- menu bottom -->
+                <ul class="menu_bottom">
+                    <li><a href="#">COFEE</a></li>
+                    <li><a href="#">MENU</a></li>
+                    <li><a href="#">STORE</a></li>
+                    <li><a href="#">ESG</a></li>
+                    <li><a href="#">STARBUCKS REWARDS</a></li>
+                    <li><a href="#">CORPORATE SALES</a></li>
+                    <li><a href="#">WHAT'S NEW</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
