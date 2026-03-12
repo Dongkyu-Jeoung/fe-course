@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Sizing</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            margin: 20px;
+        }
+        .content_box { 
+            border: 10px solid red;
+            /* box sizing : width, height 설정 값에 border line의 size를 포함할지말지
+                defualt : content-box - border line, padding의 size는 별도 */
+            box-sizing: content-box;
+            background-color: aquamarine;
+            padding: 0 20px; 
+        }
+        .border_box { 
+            border: 10px solid blue;
+            /* border-box - border line, padding 사이즈까지 포함해서 width, height 맞춤 */
+            box-sizing: border-box;
+            background-color: tomato; 
+            padding: 0 10px;
+        }
+        .d1 {
+            width: 800px;
+            height: 200px;
+            margin-top: 30px;
+            background-color: blanchedalmond;
+            display: flex;
+        }
+        p {
+            width: 380px;
+            height: 180px;
+            margin: 0;
+            background-color: tomato;
+            border: 10px solid blue;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Box Sizing</h1>
+    <div class="content_box">Box Sizing : content-box</div>
+    <div class="border_box">Box Sizing : border-box</div>
+    <div class="d1">
+        <p class="p1">lorem</p>
+        <p class="p2">lorem</p>
+    </div>
+</body>
+</html>

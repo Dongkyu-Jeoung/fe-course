@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <style>
+        /* div {
+            border: 1px solid red;
+            border 기준 안쪽 여백 : padding
+            padding: 10px;
+        } */
+        span {
+            border: 1px solid blue;
+            padding: 10px;
+        }
+        .d1 {
+            /* border 기준 바깥 여백 : margin */
+            margin: 10px;
+        }
+        .d2 span{
+            /* 좌우 여백은 생기는데, 상하 여백은 안생김 */
+            margin: 30px;
+        }
+        .padding {
+            border: 1px solid tomato;
+            /* padding : T(top) R(right) B(bottom) L(left) 순서대로 설정 가능 */
+            /* 두개만 입력하면 vertial horizontal 순서 */
+            padding: 20px 60px;
+        }
+        .margin {
+            border: 1px solid gold;
+            margin: 60px 20px;
+        }
+        p,h3 { 
+            border: 1px solid green;
+            /* block level은 기본적인 상하 margin이 존재 */
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Box Model Style : Padding, Border, Margin</h1>
+    <div class="d1">Box Model - Content(div)</div>
+    <div class="d2">
+        <span>Box Model - Content(span)</span>
+        <span>Box Model - Content(span)</span>
+    </div>
+    <div class="padding">
+        <h3>Padding</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quae fugit reprehenderit. Doloremque error itaque nostrum aliquam deserunt fugit dolores corrupti. Vel, praesentium assumenda eius voluptatem nostrum quos architecto dolores.</p>
+    </div>
+    <div class="margin">
+        <h3>Margin</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quae fugit reprehenderit. Doloremque error itaque nostrum aliquam deserunt fugit dolores corrupti. Vel, praesentium assumenda eius voluptatem nostrum quos architecto dolores.</p>
+    </div>
+</body>
+</html>
