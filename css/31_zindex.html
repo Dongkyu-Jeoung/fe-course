@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Index Style</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            color: #fff;
+        }
+        .red {
+            background-color: red;
+            position: relative;
+            top: 20px;
+            left: 50px;
+            /* z-index가 높을수록 화면 앞쪽으로 보임 */
+            z-index: 2;
+        }
+        .blue {
+            background-color: blue;
+            position: relative;
+            top: -50px;
+            left: 100px;
+            z-index: 3;
+        }
+        .green {
+            background-color: green;
+            position: relative;
+            top: -300px;
+            left: 10px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Z-Index Style</h1>
+    <div class="red">Child #1</div>
+    <div class="blue">Child #2</div>
+    <div class="green">Child #3</div>
+</body>
+</html>

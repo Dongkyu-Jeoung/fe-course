@@ -10,7 +10,6 @@
     <style>
         header {
             width: 1300px;
-            /* 900px 짜리 */
             margin: auto;
         }
         .header_top {
@@ -61,13 +60,41 @@
             display: block;
             width: 100px;
             height: 40px;
-            /* border-right: 1px #666 solid; */
             align-content: center;
             text-align: center;
-        }       
+            box-sizing: border-box;
+            border: 3px transparent solid;
+
+            /* border: 1px solid saddlebrown; */
+        }     
+
+        /* 메인메뉴 사이사이 구분선 추가 */
+        .nav_bottom_main li{
+            /* border: 1px solid green; */
+            display: flex;
+            align-items: center;
+        }
+        .nav_bottom_main li::after{
+            content:"";
+            display: inline-block;
+            width: 1px;
+            height: 14px;
+            background-color: #666;  
+        }
+        .nav_bottom_main li:last-child::after{
+            display: none;
+        }
+
+        /* 메인메뉴 마우스 올리면 아래 border line */
         .nav_bottom_main a:hover {
             border-bottom: 3px red solid;
-        } 
+        }
+        .main_sub_menu {
+
+        }
+        /* .sub_menu_wrap {
+            display: none;
+        } */
     </style>
 </head>
 <body>
@@ -104,7 +131,16 @@
             <div>
                 <nav>
                     <ul class="nav_bottom_main">
-                        <li><a href="#">예매</a></li>
+                        <li>
+                            <a href="#">예매</a>
+                            <!-- <div class="sub_menu_wrap">
+                                <ul class="main_sub_menu">
+                                    <li><a href="#">예매하기</a></li>
+                                    <li><a href="#">상영시간표</a></li>
+                                    <li><a href="#">할인안내</a></li>
+                                </ul>
+                            </div> -->
+                        </li>
                         <li><a href="#">영화</a></li>
                         <li><a href="#">영화관</a></li>
                         <li><a href="#">이벤트</a></li>

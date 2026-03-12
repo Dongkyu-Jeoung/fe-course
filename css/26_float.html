@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float Style</title>
+    <style>
+        /* .box_group {} */
+        .box_group div{
+            width: 100px;
+            height: 100px;
+        }
+        .d1 {
+            background-color: aquamarine;
+            float: left;
+        }
+        .d2 {
+            background-color: gold;
+            float: left;
+        }
+        .d3 {
+            background-color: tomato;
+            float: right;
+        }
+        .box_group p{
+            /* p태그가 float의 영향을 받지 않도록 */
+            clear: both;
+        }
+        .img_group {
+            width: 500px;
+            height: 300px;
+            border: 1px solid blue;
+        }
+        .img_group img {
+            width: 100px;
+            height: 100px;
+            float: right;
+            padding: 20px;
+        }
+        .img_group p {margin: 0;}
+    </style>
+</head>
+<body>
+    <!-- block level element를 한줄로 정렬 -->
+    <h1>Float Style</h1>
+    <div class="box_group">
+        <div class="d1"></div>
+        <div class="d2"></div>
+        <div class="d3"></div>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis, nam obcaecati provident neque laborum nostrum veniam blanditiis amet ut, vero illum dolores! Veritatis quasi deserunt exercitationem consequatur nesciunt delectus sequi?</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis, nam obcaecati provident neque laborum nostrum veniam blanditiis amet ut, vero illum dolores! Veritatis quasi deserunt exercitationem consequatur nesciunt delectus sequi?</p>
+    </div>
+
+    <div class="img_group">
+        <img src="../images/king.jpg" alt="img1">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae tempora minus magni minima fuga ad corporis nihil! Ratione, laboriosam quibusdam labore iste dolorem facere eius mollitia nemo vel nobis modi.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque suscipit porro iure, facere a omnis nostrum fugiat iste quae! Quidem architecto sapiente, facere deserunt voluptatum quaerat aut. Inventore, officiis harum?</p>
+    </div>
+</body>
+</html>

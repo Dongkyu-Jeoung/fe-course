@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body {margin: 0;}
+        .slider_wrap {
+            position: relative;
+            width: 1000px;
+            height: 400px;
+            margin: auto;
+            border: 1px solid red;
+            text-align: center;
+        }
+        .slider_wrap img {
+            width: 800px;
+            height: 400px;
+        }
+        button {
+            position: absolute;
+            top: 50%;
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {background-color: darkolivegreen;}
+        .btn_prev {
+            left: 20px;
+        }
+        .btn_next {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Slider</h1>
+    <div class="slider_wrap">
+        <img src="https://cf2.lottecinema.co.kr/lotte_image/2025/Mad/Mad_1920774999.jpg" 
+            alt="mad office poster">
+            <button class="btn_prev">Prev</button>
+            <button class="btn_next">Next</button>
+    </div>
+</body>
+</html>
