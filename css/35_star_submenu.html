@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'nbg';
+            src: url('../fonts/NanumBarunGothic.eot');
+        }
+        * { 
+            font-family: '맑은 고딕','Nanum Gothic';
+            /* background-color: rgb(246, 245, 239); */
+            box-sizing: border-box;
+            margin: 0; 
+            padding: 0;
+        }
+        header {
+            /* border: 1px solid red; */
+            font-family: 'nbg';
+            width: 100%;            
+            background-color: rgb(246, 245, 239);       
+        }
+        .header-content {
+            width: 1200px;
+            margin: auto;
+            display: flex;  
+            justify-content: space-between; 
+            /* border: 2px solid red;  */
+            padding-top: 20px;  
+            position: relative;         
+        }
+        .header-menu-top ul, 
+        .header-menu-bottom ul {
+            display: flex;
+            list-style: none;
+            /* border: 1px solid blue; */
+            justify-content: right;
+        }
+        .header-menu-top ul { 
+            gap: 20px;
+            font-size: .9rem;
+        }
+        .header-menu-bottom ul { gap: 30px; }
+        .header-menu-top ul a, 
+        .header-menu-bottom ul a {
+            text-decoration: none;
+            color: #333;
+        }
+        .header-menu-top ul a {
+            letter-spacing: -0.5px;
+            
+        }
+        .header-menu-bottom ul a {
+            font-family: 'nbg';
+            font-size: .9rem;
+        }
+        .header-menu-top li:last-child {
+            border: 1px solid gray;
+            border-radius: 4px;
+            padding: 5px;
+            background-color: white;
+        }
+        .header-menu-top li:last-child i{
+            font-size: 1.5rem;
+            font-weight: 700;
+            background-color: white;
+        }
+        .header-menu-top li:last-child input{
+            display: none;
+        }
+
+        /* ===== 서브메뉴 스타일 정의 시작 ==== */
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            background-color: #333;
+            color: white;
+            padding: 24px 32px;
+            z-index: 1000;
+        }
+        .submenu_inner {
+            display: flex;
+            gap: 80px;
+            padding-left: 18%;
+        }
+        .submenu_inner dl dt {
+            font-size: .8rem;
+            padding: 10px;
+        }
+        .submenu_inner dd a {
+            font-size: .8rem;
+            color: rgb(153, 153, 153);
+            text-decoration: none;
+        }
+        .menu-link {
+            display: block;
+            padding: 10px 15px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+
+            /* border: 1px solid saddlebrown; */
+        }
+        .menu-link:hover {
+            background-color: #333;
+            color: #9acd32;
+            text-decoration: underline;
+        }
+        .menu-item:hover .submenu {
+            display: block;
+        }
+        /* ===== 서브메뉴 스타일 정의 종료 ==== */
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-logo">
+                <img src="https://www.starbucks.co.kr/common/img/common/logo.png" alt="Logo">
+            </div>
+            <div class="header-menu">
+                <nav class="header-menu-top">
+                    <ul>
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="#">My Starbucks</a></li>
+                        <li><a href="#">Customer Service & Ideas</a></li>
+                        <li><a href="#">Find a Store</a></li>
+                        <li>
+                            <input type="text">
+                            <a href="#"><i class="fa-brands fa-sistrix"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="header-menu-bottom">
+                    <ul class="main-menu">
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">COFFEE</a>
+                            <!-- sub menu -->
+                            <div class="submenu">
+                                <div class="submenu_inner">
+                                    <dl>
+                                        <dt>커피</dt>
+                                        <dd><a href="#">스타벅스 원두</a></dd>
+                                        <dd><a href="#">스타벅스 비아</a></dd>
+                                        <dd><a href="#">스타벅스 오리가미</a></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>커피 이야기</dt>
+                                        <dd><a href="#">스타벅스 원두</a></dd>
+                                        <dd><a href="#">스타벅스 비아</a></dd>
+                                        <dd><a href="#">스타벅스 오리가미</a></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>커피 이야기</dt>
+                                        <dd><a href="#">스타벅스 원두</a></dd>
+                                        <dd><a href="#">스타벅스 비아</a></dd>
+                                        <dd><a href="#">스타벅스 오리가미</a></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>커피 이야기</dt>
+                                        <dd><a href="#">스타벅스 원두</a></dd>
+                                        <dd><a href="#">스타벅스 비아</a></dd>
+                                        <dd><a href="#">스타벅스 오리가미</a></dd>
+                                    </dl>
+                                </div>
+                             </div>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">MENU</a>
+                            <div class="submenu">
+                                <div class="submenu_inner">
+                                    <dl>
+                                        <dt>커피</dt>
+                                        <dd><a href="#">스타벅스 원두</a></dd>
+                                        <dd><a href="#">스타벅스 비아</a></dd>
+                                        <dd><a href="#">스타벅스 오리가미</a></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>커피 이야기</dt>
+                                        <dd><a href="#">스타벅스 원두</a></dd>
+                                        <dd><a href="#">스타벅스 비아</a></dd>
+                                        <dd><a href="#">스타벅스 오리가미</a></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>커피 이야기</dt>
+                                        <dd><a href="#">스타벅스 원두</a></dd>
+                                        <dd><a href="#">스타벅스 비아</a></dd>
+                                        <dd><a href="#">스타벅스 오리가미</a></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>커피 이야기</dt>
+                                        <dd><a href="#">스타벅스 원두</a></dd>
+                                        <dd><a href="#">스타벅스 비아</a></dd>
+                                        <dd><a href="#">스타벅스 오리가미</a></dd>
+                                    </dl>
+                                </div>
+                             </div>
+                        </li>
+                        <li class="menu-item"><a href="#" class="menu-link">STORE</a></li>
+                        <li class="menu-item"><a href="#" class="menu-link">ESG</a></li>
+                        <li class="menu-item"><a href="#" class="menu-link">STARBUCKS REWARDS</a></li>
+                        <li class="menu-item"><a href="#" class="menu-link">CORPORATE SALES</a></li>
+                        <li class="menu-item"><a href="#" class="menu-link">WHAT'S NEW</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

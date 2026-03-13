@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star animation</title>
+    <!-- External 적용법 -->
+    <!-- <link rel="stylesheet" href="star_ani.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* main { border: 1px solid red; } */
+
+        /* ==== 배너 백그라운드 이미지 ==== */
+        .main_top_bg_wrap{
+            width: 100%;
+            height: 32.3vw;
+            background-image: url('https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_bg_260220.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .main_top_slogan{
+            position: absolute;
+            top: 34.83%;
+            width: 23.5%;
+            left: 11.4%;
+        }
+        .slogan {
+            max-width: 100%;
+            vertical-align: top;
+        }
+        .main_top_menus {
+            position :absolute;
+        }
+        .set_01 {
+            top: 17.03%;
+            left: 35.35%;
+            width: 11.3%;
+        }
+        .set_02 {
+            top: 26.471%;
+            left: 44.4%;
+            width: 10.95%;
+        }
+        .set_03 {
+            top: 16.874%;
+            left: 50.7%;
+            width: 13.5%;
+        }
+        .set_04 {
+            top: 16.874%;
+            left: 62%;
+            width: 11.15%;
+        }
+        .set_05 {
+            top: 16.874%;
+            left: 70.2%;
+            width: 11.5%;
+        }
+        .btn_slogan {
+            width: 23.5%;
+            height: 10%;
+            top: 59.29%;
+            left: 11.35%;
+            text-align: center;
+        }
+        .btn_slogan a {
+            font-size: 1vw;
+            display: block;
+            width: 34%;
+            height: 100%;
+            margin: 0 auto;
+            color: #ac85ba;
+            border:2px solid #ac85ba;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            box-sizing: border-box;
+            line-height: 38px;
+        }
+        .main_top_menus img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- 상단 배너 이미지 -->
+        <section class="main_top_banner">
+            <div class="main_top_bg_wrap">
+                <div class="main_top_banner_inner">
+                    <div class="main_top_slogan">
+                        <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_slogan_260220.png" 
+                            alt="slogan image"
+                            class="slogan">
+                    </div>
+                    <div class="main_top_menus set_01">
+                        <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink01_260220.png" 
+                            alt="menu img1">
+                    </div>
+                    <div class="main_top_menus set_02">
+                        <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink02_260220.png" 
+                            alt="menu img2">
+                    </div>
+                    <div class="main_top_menus set_03">
+                        <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink03_260220.png" 
+                            alt="menu img3">
+                    </div>
+                    <div class="main_top_menus set_04">
+                        <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink04_260220.png" 
+                            alt="menu img4">
+                    </div>
+                    <div class="main_top_menus set_05">
+                        <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink05_260220.png" 
+                            alt="menu img5">
+                    </div>
+                    <div class="main_top_menus btn_slogan">
+                        <a href="#">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
