@@ -8,11 +8,13 @@
         div {border: 1px solid blue;}
         .grid_wrap {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 2fr;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 2fr 1fr;
             /* grid-template-columns: repeat(4, 1fr); */
             /* grid-template-rows: repeat(2, 50px); */
             grid-auto-rows: 40px;
         }
+        .div1 {grid-row: span 2;}
         img[alt="img1"],img[alt="img2"] {
             width: 100px;
             height: 100px;
@@ -37,14 +39,11 @@
 <body>
     <h1>Display Grid Layout</h1>
     <div class="grid_wrap">
-        <div>1</div>
+        <div class="div1">1</div>
         <div>2</div>
         <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
     </div>
+
     <ul class="list-grid-wrap">
         <li class="item-grid"><img src="../images/king.jpg" alt="img1"></li>
         <li><img src="../images/king.jpg" alt="img1"></li>
