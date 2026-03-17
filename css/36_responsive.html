@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Style</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .header_menu_btn {
+            display: none;
+            background-color: #999;
+            color: aqua;
+            font-size: 1.5rem;  
+        }
+        /* media query : 800px 이상일 때 실행되는 CSS */
+        @media screen and (min-width:1000px) {
+            .header_menu {
+                display: flex;
+                list-style: none;
+                gap: 20px;
+                justify-content: center;
+                border: 1px solid blue;
+                margin: 0;
+            }
+            .header_menu a {
+                padding: 1rem 1.5rem;
+            }
+            .wrapper {
+                background-color: aquamarine;
+            }
+            .wrapper header {
+                background-color: tomato;
+                color: white;
+                font: 2rem;
+            }
+        }
+        @media screen and (max-width : 600px) {
+            .wrapper {
+                background-color: aquamarine;
+            }
+            .wrapper header {
+                background-color: tomato;
+                color: blue;
+                font: 2rem;
+            }
+            .wrapper main {
+                background-color: #666;
+                color: white;
+                font: 2rem;
+            }
+            .header_menu_btn {
+                display: block;
+            }
+            .header_menu {
+                display: none;
+            }
+        }
+        @media screen and (min-width:600px) and (max-width:1000px) {
+            .wrapper {
+                background-color: #999;
+                color: aquamarine;
+                font: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Responsive Style : 반응형</h1>
+    <div class="wrapper">
+       <header>
+            <nav>
+                <ul class="header_menu">
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">게시판</a></li>
+                    <li><a href="#">Q&A</a></li>
+                </ul>
+                <button class="header_menu_btn"><i class="fas fa-bars"></i></button>
+            </nav>
+       </header> 
+       <main>Main</main>
+       <footer>Footer</footer>
+    </div>
+</body>
+</html>
