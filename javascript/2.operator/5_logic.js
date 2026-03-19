@@ -19,4 +19,3 @@ console.log( (a !== b) && (a < b) ); // 논리식 1 : true , 논리식 2 : true
 console.log('----- || : OR 연산 ------');
 console.log( (a > b) || (a < b) ); // 논리식 1 : false , 논리식 2 : true
 console.log( (a == b) || (a > b) ); // 논리식 1 : false , 논리식 2 : false
-
