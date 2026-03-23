@@ -34,3 +34,7 @@ let inum = parseInt(str);
 console.log(inum);
 let inum2 = parseInt(str2);
 console.log(inum2);
+
+//함수 호출
+test();
+test2();
