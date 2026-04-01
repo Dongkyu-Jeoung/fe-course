@@ -42,5 +42,4 @@ async function show () {
     document.querySelector('#content').innerHTML = output;
 }
 
-// let jsonData = getJson();
 // show();
