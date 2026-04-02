@@ -123,6 +123,7 @@ function openModal(movieInfoObj) {
     let modalClose = document.querySelector('#modal-close');
 
     let posterList = movieInfoObj.posterList.split(',');
+    
 
     modalClose.addEventListener('click',() => {
         modal.style.display = 'none';
@@ -133,13 +134,12 @@ function openModal(movieInfoObj) {
         <h3>[${movieInfoObj.movieRank}] ${movieInfoObj.movieNm}</h3>
         <ul>
             ${
-                movieInfoObj.posterList.map((poster, idx) =>
+                posterList.map(poster =>
                     `
-                    <li><img src="${poster[idx]}" style="width:100px"></li>
+                    <li><img src="${poster}" style="width:100px"></li>
                     `
                 ).join("")
             }
-            <li><img src="${movieInfoObj.poster}" style="width:100px"></li>
             <li><label>감독 : </label> ${movieInfoObj.director}</li>
             <li><label>배우 : </label> ${movieInfoObj.actor}</li>
         </ul>
