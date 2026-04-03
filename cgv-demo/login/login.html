@@ -8,6 +8,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/cgv.css">
     <link rel="stylesheet" href="../css/commons.css">
+    <script src="../js/login.js"></script>
 </head>
 <body>
     <!-- header -->
@@ -27,13 +28,16 @@
                             <i class="fa-regular fa-user"></i>
                             <input type="text" name="id" id="id" placeholder="아이디를 입력해주세요">
                         </div>
+                        <p id="idMsg"></p>
                         <div class="login-form-input">
                             <i class="fa-solid fa-lock"></i>
                             <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력해주세요">
                         </div>
+                        <p id="pwdMsg"></p>
                     </li>
                     <li>
-                        <button type="button" class="btn-main-color" onclick="loginCheck()">로그인</button>
+                        <button type="button" class="btn-main-color" 
+                            id="btnLogin">로그인</button>
                     </li>
                 </ul>
             </form>
