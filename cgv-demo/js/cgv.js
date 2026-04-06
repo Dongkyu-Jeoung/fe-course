@@ -10,7 +10,7 @@ async function getJson () {
     const today = new Date();
     const targetDt = String(today.getFullYear()) + 
         String(today.getMonth()+1).padStart(2,'0') + String(today.getDate()-1).padStart(2,'0');
-    
+
     const data_url = `http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${key}&targetDt=${targetDt}`
     let response = await fetch(data_url);
     return response.json();
@@ -70,6 +70,8 @@ async function show() {
     document.querySelector('#movie-chart').innerHTML = output;
 }
 
+
+// swiper 생성 함수
 function createSwiper () {
     const swiper = new Swiper('.swiper', {
     // Optional parameters
