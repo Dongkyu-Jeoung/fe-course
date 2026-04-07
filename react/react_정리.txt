@@ -1,0 +1,116 @@
+1. 리액트의 탄생
+    (1) 탄생 배경
+        - React는 페이스북의 개발팀이 화면 업데이트를 위해 개발하던 중 탄생
+        - React는 자바스크립트 기반의 라이브러리
+        - 2013년도 등장한 선언형 방식으로 UI를 표현
+        - 현재는 2024 (React.19v)을 API 지원 : 항상 최신 버전으로 개발 권장
+
+    (2) 왜 새로운 기술이 필요했나?
+        - 기존의 기술 한계점 : 정적인 웹 구축에 초점 -> 대규모 앱 구축에 부적합
+        - 페이스북의 요청 : 
+            다양한 인터랙션(사용자와의 양방향 소통)
+            변화가 잦은 대규모 앱 필요 
+
+    React 핵심 목적 - 변화가 자주 일어나는 대규모 어플리케이션에 적합한 쉽고 효율적인 라이브러리 개발
+
+2. 리액트의 특징 3가지
+    (1) 컴포넌트 기반
+        - UI를 독립적이고 재사용 가능한 컴포넌트 단위로 분리
+    (2) 가상돔(Virtual DOM)
+        - 실제 DOM을 복제하여 가상돔에서 필요한 부분만 업데이트 진행 후 한번에 실제 DOM에 반영 (빠른 업데이트)
+    (3) 단방향 데이터 흐름
+        - 부모 컴포넌트 -> 자식 컴포넌트로 데이터를 전달
+        - 자식 -> 부모로는 안됨
+
+3. 리액트 앱 생성 - 리액트 프로젝트
+    (1) Vite(비트) - 리액트 라이브러리를 제공하는 오픈 API 
+    (2) 기존 CRA(Create React App)를 대체하는 라이브러리
+    (3) Vite를 활용한 리액트 앱 생성
+        1) 개발 환경 구성 - Node.js 설치 (node -v / npm -v)
+        2) 리액트 앱 생성 : my-app 
+            형식 : npm create vite@latest [앱이름]
+            예) npm create vite@latest my-app       
+
+4. 리액트 앱 동작 순서 
+    (1) npm run dev         // 서버 실행 http://localhost:5173/index.html
+    (2) index.html  렌더링
+    (3) main.jsx  호출
+        - index.html의 root 아이디에 import한 컴포넌트 추가
+    (4) App 컴포넌트 렌더링 : virtual DOM
+
+5. 컴포넌트
+    (1) 정의
+        - UI를 구성하는 독립적이고 재사용 가능한 단위
+        - 함수가 HTML을 반환하는 구조 : return()
+        - 레고 블록을 조합하여 페이지를 구성
+    (2) 종류
+        - 함수형 컴포넌트 : 2018년 이후 사용됨, 현재 표준
+            function [컴포넌트명] () {
+                return ();
+            }
+        - 클래스형 컴포넌트 : 거의 사용 안함
+            class [클래스명] extends React.Component {
+                render();
+            }
+    (3) 특징
+        - 재사용성
+        - 독립성 : 파일이름 하나당 컴포넌트 하나 CSS 하나
+        - 조합 가능 : 컴포넌트를 조합하여 화면을 구성
+    (4) 구성요소
+        형식 : function [컴포넌트명] ( props ) {
+                // 로직, 컴포넌트 상태관리 (React Hooks)
+                return();
+            }
+
+            const [컴포넌트명] ( Props ) => {
+                // 로직, 컴포넌트 상태관리 (React Hooks)
+                return();
+            }
+
+        - 컴포넌트 명은 PascalCase (첫글자 대문자)
+        - 컴포넌트의 인자값은 props로 전송되며, 단방향으로 진행
+        - return 함수를 통해 화명 렌더링(출력)
+        - return 함수는 JSX 문법이 적용됨
+
+    (5) 부모 컴포넌트 vs 자식 컴포넌트
+        - 부모 컴포넌트 : index.html에 실제 렌더링 되는 컴포넌트
+        - 자식 컴포넌트 : 부모 컴포넌트의 return 함수에서 호출되는 컴포넌트
+
+    (6) Export / Import
+        - 컴포넌트 앞에 export를 추가
+        export (default) function [컴포넌트명] () {
+            return()
+        }
+        - 별칭(Alias)을 이용하여 자식 컴포넌트를 import 함
+        - export default 컴포넌트는 컴포넌트명 그대로 사용
+        - export 컴포넌트는 {컴포넌트명} 형식
+        import [별칭] from '컴포넌트위치.확장자';
+
+6. JSX (JavaScript Extension)
+    (1) JSX 란?
+        - 자바스크립트 + HTML 태그를 포함한 리액트 확장 문법
+        - 공식 JS 문법은 아니지만 리액트 개발팀에서 적극 권장
+        - 중괄호 {}를 사용하여 HTML안에 JS 표현식 사용가능
+
+    (2) JSX에서 사용 가능한 표현식
+        - 산술 표현식 : {numA + numB}
+        - 문자열 표현식 : {strA + strB + '홍길동'}
+        - 논리 표현식 : {booleanA || booleanB}
+        - 객체 표현식 : Object Literal은 객체명.프로퍼티명으로 호출 / 객체명으로는 접근 불가
+
+    (3) JSX 문법
+        - 모든 태그는 반드시 closing(/>) 태그를 가져야함
+        - 최상위 태그를 반드시 하나만 가지고 있어야함
+        - 최상위 태그를 <></> 빈태그로 가질 수 있음
+
+    (4) 조건부 렌더링 - 삼항연산자, if 조건문
+        
+    (5) JSX 스타일링
+        - 인라인 스타일링 : CSS 속성을 객체로 작성, camelCase사용
+        ex) <h1 style={{backgroundColor:'red', ...}}> Hello React </h1>
+
+        - CSS 파일로 작성하고, 컴포넌트에서 import 
+        ex) import 'CSS파일위치';
+
+        클래스 적용시 class="" 이거 안씀
+        <h1 className="body">CSS 클래스명 적용</h1>
