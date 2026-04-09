@@ -13,6 +13,7 @@
 
 .avatar_img_circle {
     width: 180px;
+    height: 180px;
     border-radius: 100%;
     padding: 10px 20px;
 }

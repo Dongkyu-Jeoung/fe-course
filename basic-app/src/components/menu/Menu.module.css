@@ -1,7 +1,21 @@
-.menu {
+.menu1 {
     border: 1px solid red;
     padding: 5px 10px;
     margin: 5px 0;
     text-decoration: none;
     color: black;
+}
+.menu2 {
+    border: 1px solid turquoise;
+    padding: 5px 10px;
+    margin: 0;
+    text-decoration: none;
+    color: black;
+}
+
+.menu_list {
+    padding-left: 0;
+    display: flex;
+    list-style-type: none;
+    justify-content: left;
 }

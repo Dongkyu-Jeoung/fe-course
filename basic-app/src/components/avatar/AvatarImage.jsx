@@ -1,8 +1,9 @@
 // import style from "./Avatar.module.css"
+import Image from "../../common/Image.jsx"
 
 
 export default function AvatarImage ({img, style}) {
     return (
-        <img src={img} alt="people" className={style}/>
+        <Image img={img} alt="photo" className={style}/>
     )
 }
