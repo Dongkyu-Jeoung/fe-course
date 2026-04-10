@@ -1,4 +1,5 @@
 import BasicCounter from './components/counter/BasicCounter.jsx'
+import Counter from './components/counter/Counter.jsx'
 import {useState} from 'react'
 
 export default function App() {
@@ -15,6 +16,8 @@ export default function App() {
             <BasicCounter click={handleTot} total={tot} setTotal={setTot}/>
             <BasicCounter click={handleTot} total={tot} setTotal={setTot}/>
             <BasicCounter click={handleTot} total={tot} setTotal={setTot}/>
+            
+            <Counter/>
         </>
     )
 }
