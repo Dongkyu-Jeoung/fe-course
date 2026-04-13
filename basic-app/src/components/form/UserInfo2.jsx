@@ -4,7 +4,7 @@
  * - 전송 버튼 클릭시 유효성 체크 진행
  */
 import { useRef, useState } from 'react'
-import { validateUserInfo } from '../../util/validate.js'
+import { validateUserInfo2 } from '../../util/validate.js'
 import Input from './Input.jsx'
 
 export default function UserInfo2 () {
@@ -17,9 +17,9 @@ export default function UserInfo2 () {
     }
 
     const forms = [
-        {label : "이름", type : "text", name : "name"},
-        {label : "나이", type : "text", name : "age"},
-        {label : "주소", type : "text", name : "address"}
+        {label : "이름", type : "text", name : "name", isRequired: true},
+        {label : "나이", type : "text", name : "age", isRequired: true},
+        {label : "주소", type : "text", name : "address", isRequired: false}
     ];
 
     const [form, setForm] = useState(initForm);
@@ -42,9 +42,10 @@ export default function UserInfo2 () {
                 <ul>
                     {forms.map ( item => 
                         <li>
+                            {item.isRequired && <span>✨</span>}
                             <label htmlFor={item.name}>{item.label}</label>
                             <Input item={item} value={form[item.name]} 
-                                handleChange={handleChange} inputRef={(e) => refs[item.name] = e}/>
+                                handleChange={handleChange} inputRef={(e) => refs.current[item.name] = e}/>
                             { form[item.name].trim() === '' && <span style={{color:'red', display:'block'}}>{item.label}을 입력해주세요</span> }
                         </li>
                     )}
