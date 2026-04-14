@@ -1,0 +1,64 @@
+{
+    "roomList" : [
+        {
+            "pk" : "air_001",
+            "img" : "https://a0.muscache.com/im/pictures/hosting/Hosting-1426495382596542876/original/02c048a5-b4fd-4c90-92d6-d95c61542a74.jpeg?im_w=1200",
+            "roomTitle" : "부산진구의 집",
+            "roomDate" : "6월19일~21일",
+            "roomPrice" : "572,000",
+            "roomRating" : "5.0",
+            "isGuest" : true,
+            "isLike" : true
+        },
+        {
+            "pk" : "air_002",
+            "img" : "https://a0.muscache.com/im/pictures/hosting/Hosting-1426495382596542876/original/e9e99d10-926e-4c3d-8474-cf10a0732c2e.jpeg?im_w=1200",
+            "roomTitle" : "제주서귀의 집",
+            "roomDate" : "7월15일~17일",
+            "roomPrice" : "432,000",
+            "roomRating" : "4.8",
+            "isGuest" : false,
+            "isLike" : true
+        },
+        {
+            "pk" : "air_003",
+            "img" : "https://a0.muscache.com/im/pictures/hosting/Hosting-1426495382596542876/original/b74f9907-06cb-466e-8f94-52440bdbffed.jpeg?im_w=720",
+            "roomTitle" : "서울강동의 집",
+            "roomDate" : "6월19일~21일",
+            "roomPrice" : "698,000",
+            "roomRating" : "4.9",
+            "isGuest" : true,
+            "isLike" : false
+        },
+        {
+            "pk" : "air_004",
+            "img" : "https://a0.muscache.com/im/pictures/hosting/Hosting-1426495382596542876/original/02c048a5-b4fd-4c90-92d6-d95c61542a74.jpeg?im_w=1200",
+            "roomTitle" : "부산진구의 집",
+            "roomDate" : "6월19일~21일",
+            "roomPrice" : "572,000",
+            "roomRating" : "5.0",
+            "isGuest" : true,
+            "isLike" : true
+        },
+        {
+            "pk" : "air_005",
+            "img" : "https://a0.muscache.com/im/pictures/hosting/Hosting-1426495382596542876/original/e9e99d10-926e-4c3d-8474-cf10a0732c2e.jpeg?im_w=1200",
+            "roomTitle" : "제주서귀의 집",
+            "roomDate" : "7월15일~17일",
+            "roomPrice" : "432,000",
+            "roomRating" : "4.8",
+            "isGuest" : false,
+            "isLike" : true
+        },
+        {
+            "pk" : "air_006",
+            "img" : "https://a0.muscache.com/im/pictures/hosting/Hosting-1426495382596542876/original/b74f9907-06cb-466e-8f94-52440bdbffed.jpeg?im_w=720",
+            "roomTitle" : "서울강동의 집",
+            "roomDate" : "6월19일~21일",
+            "roomPrice" : "698,000",
+            "roomRating" : "4.9",
+            "isGuest" : true,
+            "isLike" : false
+        }
+    ]
+}

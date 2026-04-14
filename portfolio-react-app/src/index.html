@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio-static</title>
+    <meta name="description" content="portfolio-static">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 폰트 어썸 CDN -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header_logo">
+            <img src="images/favicon.ico" alt="header logo" class="header_logo_img">
+            <h1 class="header_logo_title">Judy</h1>
+        </div>
+        <nav>
+            <ul class="header_menu">
+                <li><a href="#home" class="header_menu_item active">Home</a></li>
+                <li><a href="#about" class="header_menu_item">About</a></li>
+                <li><a href="#skills" class="header_menu_item">Skills</a></li>
+                <li><a href="#work" class="header_menu_item">My work</a></li>
+                <li><a href="#testimonial" class="header_menu_item">Testimonial</a></li>
+                <li><a href="#contact" class="header_menu_item">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="header_toggle"><i class="fas fa-bars"></i></button>
+    </header>
+
+    <main>
+        <section id="home" class="container">
+            <img src="images/favicon.ico" alt="home avatar" class="home_avatar">
+            <h2 class="home_title">
+                Hello<br>
+                I'm <strong class="home_title_strong">Dream Coder</strong>, Judy
+            </h2>
+            <p class="home_description">A software engineer currently residing in Seoul, South Korea</p>
+            <a href="#" class="home_contact">Contact Me</a>
+        </section>
+        <section id="about" class="container">
+            <h2 class="title">About Me</h2>
+            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic reiciendis quod corrupti animi corporis vel totam! Sint aliquam voluptatibus cupiditate consequuntur, asperiores possimus tenetur architecto quos sit aperiam nihil omnis.</p>
+            <ul class="majors">
+                <li class="major">
+                    <!-- font awesone -->
+                    <i class="fab fa-html5 major_icon"></i>
+                    <p class="major_title">Front-end</p>
+                    <p class="description_small">HTML, CSS, JavaScript, TypeScript, ReacT, WebAPIS</p>
+                </li>
+                <li class="major">
+                    <!-- font awesone -->
+                    <i class="fas fa-mobile major_icon"></i>
+                    <p class="major_title">Mobile</p>
+                    <p class="description_small">Android Studio, React Native, iO5, Swift, Java, Kotlin</p>
+                </li>
+                <li class="major">
+                    <!-- font awesone -->
+                    <i class="fas fa-server major_icon"></i>
+                    <p class="major_title">Back-end</p>
+                    <p class="description_small">Java, JavaScript, Go, Kotlin, Spring, Spring Boot</p>
+                </li>
+            </ul>
+            <ul class="jobs">
+                <li class="job">
+                    <img src="images/jobs/google.png" alt="google">
+                    <div>
+                        <p class="job_name">Google as Junior Software Engineer</p>
+                        <p class="job_period">2019 Oct - Until now</p>
+                    </div>
+                </li>
+                <li class="job">
+                    <img src="images/jobs/samsung.png" alt="samsung">
+                    <div>
+                        <p class="job_name">Samsung as Junior Software Engineer</p>
+                        <p class="job_period">2010 Oct - 2019 Oct now</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="skills" class="container">
+            <h2 class="title">My Skills</h2>
+            <p class="description">Skills & Attributes</p>
+            <p class="description_small">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum ut maiores commodi aliquam quo nesciunt rerum velit esse incidunt ad nulla, qui quas aut eligendi ducimus aliquid perspiciatis soluta neque.</p>
+
+            <div class="skills">
+                <article class="skills_coding">
+                    <h3 class="skills_title">Coding Skills</h3>
+                    <ul>
+                        <li class="bar">
+                            <div class="bar_title">
+                                <span>HTML</span>
+                                <span>98%</span>
+                            </div>
+                            <div class="bar_bg">
+                                <div class="bar_value bar_value_html"></div>
+                            </div>
+                        </li>
+                        <li class="bar">
+                            <div class="bar_title">
+                                <span>CSS</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="bar_bg">
+                                <div class="bar_value bar_value_css"></div>
+                            </div>
+                        </li>
+                        <li class="bar">
+                            <div class="bar_title">
+                                <span>JavaScript</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="bar_bg">
+                                <div class="bar_value bar_value_javascript"></div>
+                            </div>
+                        </li>
+                        <li class="bar">
+                            <div class="bar_title">
+                                <span>TypeScript</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="bar_bg">
+                                <div class="bar_value bar_value_typescript"></div>
+                            </div>
+                        </li>
+                        <li class="bar">
+                            <div class="bar_title">
+                                <span>React</span>
+                                <span>79%</span>
+                            </div>
+                            <div class="bar_bg">
+                                <div class="bar_value bar_value_react"></div>
+                            </div>
+                        </li>
+                        <li class="bar">
+                            <div class="bar_title">
+                                <span>NodeJS</span>
+                                <span>68%</span>
+                            </div>
+                            <div class="bar_bg">
+                                <div class="bar_value bar_value_nodejs"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </article>
+                <article class="skills_tools">
+                    <h3 class="skills_title">Tools</h3>
+                    <p class="description_small">Visual Studio Code</p>
+                    <p class="description_small">IntelliJ</p>
+                    <p class="description_small">Android Studio Code</p>
+                    <p class="description_small">iOS development tools</p>
+                    <p class="description_small">Ecllipse</p>
+                </article>
+                <article class="skills_etc">
+                    <h3 class="skills_title">Etc</h3>
+                    <p class="description_small">Git</p>
+                    <p class="description_small">Scrum Master</p>
+                    <p class="description_small">SVM</p>
+                </article>
+            </div>
+        </section>
+        <section id="work" class="container">
+            <h2 class="title">My Work</h2>
+            <p class="description">Projects</p>
+            <ul class="categories">
+                <li><button class="category">All<span class="category_count">8</span></button></li>
+                <li><button class="category">Front-end<span class="category_count">4</span></button></li>
+                <li><button class="category">Back-end<span class="category_count">2</span></button></li>
+                <li><button class="category">Mobile<span class="category_count">2</span></button></li>
+            </ul>
+            <ul class="projects">
+                <li class="project">
+                    <img class="project_img" 
+                        src="images/projects/project1.webp" alt="project img1">
+                    <div class="project_meta">
+                        <h3 class="project_meta_title">Project#1</h3>
+                        <p>Clone coding HTML, CSS</p>
+                    </div>
+                </li>
+                <li class="project">
+                    <img class="project_img" 
+                        src="images/projects/project2.webp" alt="project img2">
+                    <div class="project_meta">
+                        <h3 class="project_meta_title">Project#2</h3>
+                        <p>Clone coding HTML, CSS</p>
+                    </div>
+                </li>
+                <li class="project">
+                    <img class="project_img" 
+                        src="images/projects/project3.webp" alt="project img3">
+                    <div class="project_meta">
+                        <h3 class="project_meta_title">Project#3</h3>
+                        <p>Clone coding HTML, CSS</p>
+                    </div>
+                </li>
+                <li class="project">
+                    <img class="project_img" 
+                        src="images/projects/project4.webp" alt="project img4">
+                    <div class="project_meta">
+                        <h3 class="project_meta_title">Project#4</h3>
+                        <p>Clone coding HTML, CSS</p>
+                    </div>
+                </li>
+                <li class="project">
+                    <img class="project_img" 
+                        src="images/projects/project5.webp" alt="project img5">
+                    <div class="project_meta">
+                        <h3 class="project_meta_title">Project#5</h3>
+                        <p>Clone coding HTML, CSS</p>
+                    </div>
+                </li>
+                <li class="project">
+                    <img class="project_img" 
+                        src="images/projects/project6.webp" alt="project img6">
+                    <div class="project_meta">
+                        <h3 class="project_meta_title">Project#6</h3>
+                        <p>Clone coding HTML, CSS</p>
+                    </div>
+                </li>
+                <li class="project">
+                    <img class="project_img" 
+                        src="images/projects/project7.webp" alt="project img7">
+                    <div class="project_meta">
+                        <h3 class="project_meta_title">Project#7</h3>
+                        <p>Clone coding HTML, CSS</p>
+                    </div>
+                </li>
+                <li class="project">
+                    <img class="project_img" 
+                        src="images/projects/project1.webp" alt="project img1">
+                    <div class="project_meta">
+                        <h3 class="project_meta_title">Project#1</h3>
+                        <p>Clone coding HTML, CSS</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section id="testimonial" class="container">
+            <h2 class="title">Testimonial</h2>
+            <p class="description">See What they say about me</p>
+            <ul class="testimonials">
+                <li class="testimonial">
+                    <img class="testimonial_img" 
+                        src="images/testimonials/people1.webp" alt="people img1">
+                    <div class="testimonial_text">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos molestiae, similique corporis veritatis consequuntur illum id delectus officiis eum nihil, magni soluta laboriosam velit labore magnam necessitatibus impedit amet obcaecati?</p>
+                        <p><a href="#" class="testimonial_text_name">James Kim</a></p>
+                    </div>
+                </li>
+                <li class="testimonial">
+                    <img class="testimonial_img" 
+                        src="images/testimonials/people2.webp" alt="people img2">
+                    <div class="testimonial_text">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos molestiae, similique corporis veritatis consequuntur illum id delectus officiis eum nihil, magni soluta laboriosam velit labore magnam necessitatibus impedit amet obcaecati?</p>
+                        <p><a href="#" class="testimonial_text_name">Smith Park</a></p>
+                    </div>
+                </li>
+                <li class="testimonial">
+                    <img class="testimonial_img" 
+                        src="images/testimonials/people3.webp" alt="people img3">
+                    <div class="testimonial_text">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos molestiae, similique corporis veritatis consequuntur illum id delectus officiis eum nihil, magni soluta laboriosam velit labore magnam necessitatibus impedit amet obcaecati?</p>
+                        <p><a href="#" class="testimonial_text_name">Anna Jin</a></p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Arrow Top (맨위로) -->
+        <aside>
+            <a href="#" class="arrow_up"><i class="fas fa-arrow-up"></i></a>
+    </main>
+
+    <footer id="contact" class="footer">
+        <h2 class="title">Let's Talk</h2>
+        <p class="description">jeon.developer.judy@gmail.com</p>
+        <ul class="contact_links">
+            <li>
+                <a href="#" class="contact_link"><i class="fab fa-github"></i></a>
+            </li>
+            <li>
+                <a href="#" class="contact_link"><i class="fab fa-linkedin-in"></i></a>
+            </li>
+        </ul>
+        <p>Dream Software Engineer Judy's portfolio - All rights reserved</p>
+    </footer>
+
+</body>
+</html>

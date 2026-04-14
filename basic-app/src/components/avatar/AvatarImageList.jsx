@@ -5,7 +5,8 @@ export default function AvatarImageList({imgList}) {
         <div>
             {
                 imgList.map ((item, idx) => 
-                    <AvatarImage key={idx} img={item.img} />
+                    <AvatarImage key={idx} img={item.img} 
+                        style={item.style}/>
                 )
             }
         </div>
