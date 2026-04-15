@@ -104,6 +104,8 @@ section.container {
 .active {
     border: 1px solid var(--color-accent);
     border-radius: 4px;
+    background-color: var(--color-accent);
+    color :#050a13
 }
 .header_toggle {
     display: none;

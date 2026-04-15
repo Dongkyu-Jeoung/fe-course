@@ -19,12 +19,10 @@ export default function App() {
     loadData();
   }, []);
   
-  console.log(data);
-  
   return (
     <>
-      <Header jsonHeader={data.header}/>
-      <Content />
+      <Header jsonHeader={data?.header}/>
+      <Content jsonContent={data?.content}/>
       <Footer />
     </>
   )
