@@ -1,9 +1,11 @@
 import React from 'react';
-import Majors from './Majors.jsx';
-import Jobs from './Jobs.jsx';
-import { Title } from '../commons/Titles.jsx';
+import Majors from '../components/content/Majors.jsx';
+import Jobs from '../components/content/Jobs.jsx';
+import { Title } from '../components/commons/Titles.jsx';
+import { useOutletContext } from 'react-router-dom';
 
-export default function About({aboutJson}) {
+export default function About() {
+    const aboutJson = useOutletContext()?.about;
     return (
         <section id="about" className="container">
             <Title title="About Me" />

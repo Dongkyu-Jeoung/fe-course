@@ -5,6 +5,7 @@ import Content from "./components/Content.jsx"
 import Footer from "./components/Footer.jsx"
 import { fetchData } from "./utill/fetch.js"
 import { useState, useEffect } from 'react'
+import { Outlet } from "react-router-dom"
 
 export default function App() {
   const [data, setData] = useState({});
@@ -22,7 +23,8 @@ export default function App() {
   return (
     <>
       <Header jsonHeader={data?.header}/>
-      <Content jsonContent={data?.content}/>
+      <Outlet context={data?.content}/>
+      {/* <Content jsonContent={data?.content}/> */}
       <Footer jsonFooter={data?.footer}/>
     </>
   )
