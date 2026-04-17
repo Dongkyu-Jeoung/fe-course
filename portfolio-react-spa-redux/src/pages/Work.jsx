@@ -6,13 +6,12 @@ import { useOutletContext } from 'react-router-dom';
 
 export default function Work() {
     const workJson = useOutletContext()?.data?.work;
-    const { like, setLike } = useOutletContext();
     return (
         <section id="work" className="container">
             <Title title="My Work"/>
             <SubTitle subTitle="Projects" />
             <Categories list={workJson?.categories}/>
-            <Projects list={workJson?.projects} like={like} setLike={setLike}/>
+            <Projects list={workJson?.projects}/>
         </section>
     );
 }

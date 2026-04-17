@@ -1,0 +1,154 @@
+{
+    "header" : {
+        "menus" : [
+            { "href" : "/", "style" : "header_menu_item", "name" : "Home"},
+            { "href" : "/about", "style" : "header_menu_item", "name" : "About"},
+            { "href" : "/skills", "style" : "header_menu_item", "name" : "Skills"},
+            { "href" : "/work", "style" : "header_menu_item", "name" : "My Work"},
+            { "href" : "/testimonial", "style" : "header_menu_item", "name" : "Testimonial"}
+        ]
+    },
+    
+    "content" : {
+        "home" : {
+            "img" : "images/favicon.ico",
+            "name" : "Judy",
+            "title" : "Dream Coder",
+            "description" : "A software engineer currently residing in Seoul, South Korea"
+        },
+        "about" : {
+            "description" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat odio dicta necessitatibus libero magnam est alias nisi laborum nesciunt! Quam possimus accusantium, provident fugiat accusamus amet dicta fuga voluptate quo.;",
+            "majors" : [
+                {"icon": "html", "title": "Front-end", "subjects": "HTML, CSS, JavaScript, TypeScript, React, WebAPIs"},
+                {"icon": "mobile", "title": "Mobile", "subjects": "Android Studio, React Native, iOS, Swift, Java, Kotlin"},
+                {"icon": "server", "title": "Back-end", "subjects": "Java, JavaScript, Go, Kotlin, Spring, Spring Boot"}
+            ],
+            "jobs" : [
+                {   "img":"images/jobs/google.png", 
+                    "alt":"google", 
+                    "name":"Google as Junior Software Engineer", 
+                    "period":"2019 Oct - Until now"
+                },
+                {   "img":"images/jobs/samsung.png", 
+                    "alt":"samsung", 
+                    "name":"Samsung as Junior Software Engineer", 
+                    "period":"2010 Oct - 2019 Oct"
+                }
+            ]
+        },
+        "skills" : {
+            "description" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat odio dicta necessitatibus libero magnam est alias nisi laborum nesciunt! Quam possimus accusantium, provident fugiat accusamus amet dicta fuga voluptate quo.;",
+            "coding" : [
+                { "title" : "HTML", "value" : "98%", "width" : "98%"},
+                { "title" : "CSS", "value" : "90%", "width" : "90%"},
+                { "title" : "JavaScript", "value" : "90%", "width" : "90%"},
+                { "title" : "TypeScript", "value" : "80%", "width" : "80%"},
+                { "title" : "React", "value" : "79%", "width" : "79%"},
+                { "title" : "Nodejs", "value" : "68%", "width" : "68%"}
+            ],
+            "tools" : [
+                "Visual Studio Code",
+                "IntelliJ",
+                "Android Studio",
+                "Eclipse",
+                "MySQL WorkBench"
+            ],
+            "etc" : [ "Git", "Scrum Master", "SVM" ]
+        },
+        "work" : {
+            "categories" : [
+                {"category" : "All", "count" : "8"},
+                {"category" : "Front-end", "count" : "4"},
+                {"category" : "Back-end", "count" : "2"},
+                {"category" : "Mobile", "count" : "2"}
+            ],
+            "projects" : [
+                {
+                    "img" : "images/projects/project1.webp",
+                    "alt" : "project img1",
+                    "title" : "Project#1",
+                    "description" : "Clone coding HTML, CSS"
+                },
+                {
+                    "img" : "images/projects/project2.webp",
+                    "alt" : "project img1",
+                    "title" : "Project#2",
+                    "description" : "Clone coding HTML, CSS"
+                },
+                {
+                    "img" : "images/projects/project3.webp",
+                    "alt" : "project img1",
+                    "title" : "Project#3",
+                    "description" : "Clone coding HTML, CSS"
+                },
+                {
+                    "img" : "images/projects/project4.webp",
+                    "alt" : "project img1",
+                    "title" : "Project#4",
+                    "description" : "Clone coding HTML, CSS"
+                },
+                {
+                    "img" : "images/projects/project5.webp",
+                    "alt" : "project img1",
+                    "title" : "Project#5",
+                    "description" : "Clone coding HTML, CSS"
+                },
+                {
+                    "img" : "images/projects/project6.webp",
+                    "alt" : "project img1",
+                    "title" : "Project#6",
+                    "description" : "Clone coding HTML, CSS"
+                },
+                {
+                    "img" : "images/projects/project7.webp",
+                    "alt" : "project img1",
+                    "title" : "Project#7",
+                    "description" : "Clone coding HTML, CSS"
+                },
+                {
+                    "img" : "images/projects/project8.webp",
+                    "alt" : "project img1",
+                    "title" : "Project#8",
+                    "description" : "Clone coding HTML, CSS"
+                }
+            ]
+        },
+        "testimonial" : {
+            "testimonials" : [
+                {
+                    "img" : "images/testimonials/people1.webp",
+                    "alt" : "people img",
+                    "text" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos molestiae, similique corporis veritatis consequuntur illum id delectus officiis eum nihil, magni soluta laboriosam velit labore magnam necessitatibus impedit amet obcaecati?",
+                    "name" : "James Kim"
+                },
+                {
+                    "img" : "images/testimonials/people2.webp",
+                    "alt" : "people img",
+                    "text" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos molestiae, similique corporis veritatis consequuntur illum id delectus officiis eum nihil, magni soluta laboriosam velit labore magnam necessitatibus impedit amet obcaecati?",
+                    "name" : "Smith Park"
+                },
+                {
+                    "img" : "images/testimonials/people3.webp",
+                    "alt" : "people img",
+                    "text" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos molestiae, similique corporis veritatis consequuntur illum id delectus officiis eum nihil, magni soluta laboriosam velit labore magnam necessitatibus impedit amet obcaecati?",
+                    "name" : "Anna Jin"
+                }
+            ]
+        }
+    },
+    "footer" : {
+        "title" : "Let's Talk",
+        "description" : "jeon.developer.judy@gmail.com",
+        "rights" : "Dream Software Engineer Judy's portfolio - All rights reserved",
+        "contacts" : [
+            {
+                "href" : "#",
+                "icon" : "faGithub"
+            },
+            {
+                "href" : "#",
+                "icon" : "faLinkedinIn"
+            }
+        ]
+    }
+}

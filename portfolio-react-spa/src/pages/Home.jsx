@@ -1,11 +1,11 @@
 import React from 'react';
-import AvatarImage from '../commons/AvatarImage';
-import HomeTitle from './HomeTitle.jsx';
-import Menu from '../commons/Menu.jsx';
+import AvatarImage from '../components/commons/AvatarImage.jsx';
+import HomeTitle from '../components/content/HomeTitle.jsx';
+import Menu from '../components/commons/Menu.jsx';
 import { useOutletContext } from 'react-router-dom';
 
 export default function Home() {
-    const homeJson = useOutletContext()?.home;
+    const homeJson = useOutletContext()?.data?.home;
     return (
         <section id="home" className="container">
             <AvatarImage img={homeJson?.img} 

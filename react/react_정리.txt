@@ -299,3 +299,18 @@
     (3) 라우팅(Routing)
         - 메뉴로 구성된 컴포넌트 페이지로 이동하는 방식
         - react-router-dom 패키지 : Link, NavLink 컴포넌트 포함..
+
+13. 리액트 전역 객체 관리 방법
+    (1) Context + Hooks(useContext, useReducer ...)
+    (2) React-Redux + Reducer(useReducer)
+    (3) React-Redux + Redux-Toolkit(@redux/toolkit) - store, slice
+
+    (4) Redux-Toolkit(@redux/toolkit) 사용법
+        1) store : 상점
+        2) slice 생성(Reducer) : 상점에 진열되는 상품(데이터, 기능)
+        3) useSelector : 진열된 store의 slice 상품 데이터 가져오기
+        4) useDispatch : 진열된 store의 slice 상품 기능을 호출
+        5) 패키지 설치
+            npm i(install) react-redux @reduxjs/toolkit
+        6) store, slice 생성 참고
+            https://redux-toolkit.js.org/tutorials/quick-start

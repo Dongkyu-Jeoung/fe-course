@@ -7,6 +7,8 @@ import About from './pages/About.jsx'
 import Skills from './pages/Skills.jsx'
 import Work from './pages/Work.jsx'
 import Testimonial from './pages/Testimonial.jsx'
+import { store } from './app/store.js'
+import { Provider } from 'react-redux'
 
 //router 객체 생성
 const router = createBrowserRouter([
@@ -26,7 +28,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
-    {/* <App /> */}
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>
 )

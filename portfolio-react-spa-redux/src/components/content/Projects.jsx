@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AvatarImage from '../commons/AvatarImage.jsx';
 import Modal from './Modal.jsx';
 
-export default function Projects({ list, like, setLike }) {
+export default function Projects({ list }) {
     const [selectedProject, setSelectedProject] = useState(null);
     
     return (
@@ -23,8 +23,7 @@ export default function Projects({ list, like, setLike }) {
             </ul>
 
             { selectedProject &&
-                <Modal project={selectedProject} onClose={()=> setSelectedProject(null)}
-                        like={like} setLike={setLike}/>
+                <Modal project={selectedProject} onClose={()=> setSelectedProject(null)}/>
             }
         </>
     );

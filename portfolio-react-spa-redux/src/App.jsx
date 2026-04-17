@@ -23,8 +23,8 @@ export default function App() {
   
   return (
     <>
-      <Header jsonHeader={data?.header} like={like}/>
-      <Outlet context={{data : data?.content, like, setLike}}/>
+      <Header jsonHeader={data?.header}/>
+      <Outlet context={{data : data?.content}}/>
       <Footer jsonFooter={data?.footer}/>
     </>
   )
