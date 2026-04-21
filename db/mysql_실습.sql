@@ -339,3 +339,193 @@ WHERE EMAIL LIKE '_a%';
 -- 이메일 아이디가 4자인 모든 사원을 조회
 SELECT * FROM EMPLOYEE
 WHERE EMAIL LIKE '____@%';
+
+-- 부서아이디에 'A'가 들어가는 모든 사원들을 조회
+SELECT *
+FROM EMPLOYEE
+WHERE DEPT_ID LIKE '%A%';
+
+/******************************************************
+	내장함수 : 숫자함수, 문자함수, 날짜함수
+    호출되는 위치 - [컬럼리스트], [조건절의 컬럼명]
+******************************************************/
+-- [숫자함수]
+-- 함수 실습을 위한 테이블 : DUAL
+
+-- (1) ABS(숫자) : 절대값
+SELECT ABS(123), ABS(-456) FROM DUAL;
+
+-- (2) 소수점 절삭 : FLOOR(숫자) : 소수점 버림, TRUNCATE(숫자, 자리수) : 버림 후 자리수 까지 표현
+SELECT FLOOR(1.234), TRUNCATE(1.234, 2) FROM DUAL;
+
+-- 사원테이블의 SYS 부서 사원들의 사번, 사원명, 부서아이디, 폰번호, 급여, 보너스(급여의 25%) 컬럼을 추가하여 조회, 보너스는 소수점 1자리 출력
+DESC EMPLOYEE;
+
+SELECT EMP_ID 사번, EMP_NAME 사원명, DEPT_ID 부서아이디, PHONE 폰번호, SALARY 급여, TRUNCATE(SALARY*0.25, 1) AS 보너스
+FROM EMPLOYEE
+WHERE DEPT_ID = 'SYS';
+
+-- (3) RAND() : 임의의 난수 발생 함수 ( 0 ~ 1 )
+SELECT RAND() FROM DUAL;
+
+-- 정수 3자리(0 ~ 999) 사이의 난수 발생
+SELECT FLOOR(RAND() * 1000) AS NUMBER FROM DUAL;
+
+-- 정수 4자리 (0 ~ 9999) 사이의 난수 발생, 소수점 2자리
+SELECT TRUNCATE(RAND() * 10000, 2) AS NUMBER FROM DUAL;
+
+-- (4) MOD(숫자, 나누는수) : 나머지
+SELECT MOD(7,2) ODD, MOD(8,2) EVEN FROM DUAL;
+
+-- 3자리 수를 랜덤으로 발생시켜 홀수, 짝수 구분
+SELECT MOD( FLOOR(RAND()*1000), 2 ) 홀짝 FROM DUAL;
+
+
+-- [문자함수]
+-- (1) CONCAT(문자열1, 문자열2,...) : 문자열 결합
+SELECT CONCAT('DD', 'TT') AS STRING FROM DUAL;
+
+-- 사원테이블의 사원번호, 사원명, 사원명2 컬럼을 생성하여 조회
+-- 사원명2 : 사원번호(사원명)  예) S0001(홍길동)
+SELECT EMP_ID, EMP_NAME, CONCAT( EMP_ID, '(', EMP_NAME, ')' ) AS 사원명2 FROM EMPLOYEE;
+
+-- 사번, 사원명, 영어이름, 입사일, 폰번호, 급여를 조회
+-- 영어이름의 출력형식을 '홍길동/hong' 타입으로 출력
+-- 영어이름이 null인 경우에는 'smith'를 기본으로 조회
+SELECT EMP_ID, EMP_NAME, CONCAT( EMP_NAME, '/', IFNULL(ENG_NAME, LOWER('SMITH')) ) AS 영어이름, HIRE_DATE, PHONE, SALARY
+FROM EMPLOYEE;
+
+-- (2) SUBSTRING(문자열, 위치, 개수) : 문자열 추출, 공백도 포함
+SELECT SUBSTRING('ABCDEFGHIJK', 3, 2) AS STR FROM DUAL;
+SELECT SUBSTRING(CURDATE(),1,4) AS YEAR, SUBSTRING(CURDATE(),6,2) AS MONTH FROM DUAL;
+
+-- 사원테이블의 사번, 사원명, 입사년도, 입사월, 입사일, 급여를 조회
+SELECT EMP_ID, EMP_NAME, HIRE_DATE, YEAR(HIRE_DATE) 년, MONTH(HIRE_DATE) 월, DAY(HIRE_DATE) 일, SALARY
+FROM EMPLOYEE;
+
+-- 2015년도에 입사한 모든 사원 조회
+SELECT *
+FROM EMPLOYEE
+WHERE YEAR(HIRE_DATE) = '2015';
+
+-- 2018년도에 입사한 SYS 부서 사원 조회
+SELECT *
+FROM EMPLOYEE
+WHERE YEAR(HIRE_DATE) = '2018' AND DEPT_ID = 'SYS';
+
+-- (3) LEFT, RIGHT
+SELECT LEFT('HELLO',2) FROM DUAL;
+SELECT RIGHT('HELLO',3) FROM DUAL;
+SELECT LEFT( CURDATE(),4 ) YEAR FROM DUAL;
+SELECT RIGHT( CURDATE(),2 ) DAY FROM DUAL;
+
+-- 2015년도부터 2017년 사이에 입사한 모든 사원 조회
+SELECT *
+FROM EMPLOYEE
+WHERE YEAR(HIRE_DATE) BETWEEN '2015' AND '2017'
+ORDER BY HIRE_DATE;
+
+-- 사원번호, 사원명, 입사일, 폰번호, 급여 조회
+-- 폰번호는 마지막 4자리만 출력
+SELECT EMP_ID, EMP_NAME, HIRE_DATE, RIGHT(PHONE, 4), SALARY
+FROM EMPLOYEE;
+
+-- (4) UPPER(), LOWER() : 대소문자 치환
+SELECT UPPER('welcomeToMysql') AS UPPER, LOWER('welcomeToMysql') AS LOWER FROM DUAL;
+
+-- 사번, 사원명, 영어이름, 부서아이디, 이메일, 급여 조회
+-- 영어이름은 대문자, 부서아이디는 소문자, 이메일은 대문자
+SELECT EMP_ID, EMP_NAME, UPPER(IFNULL(ENG_NAME,'')), LOWER(DEPT_ID), UPPER(EMAIL), SALARY
+FROM EMPLOYEE;
+
+-- (5) TRIM() : 앞뒤 공백제거
+SELECT TRIM('  HELLO MY NAME IS DK ') AS STR FROM DUAL;
+
+-- (6) FORMAT(문자열, 소수점자리) : 문자열 포맷 - 3자리씩 ,로 구분
+SELECT FORMAT(123456, 1) AS FORMAT1,
+		FORMAT('123456', 0) AS FORMAT2
+FROM DUAL;
+
+
+-- 사번, 사원명, 입사일, 폰번호, 급여, 보너스(급여 20%) 조회
+-- 급여, 보너스는 소수점 없이 3자리씩 구분
+-- 급여가 NULL인 경우 기본값 0
+-- 2016년부터 2017년 사이에 입사한 사원
+-- 사번 기준으로 내림차순 정렬
+SELECT EMP_ID, EMP_NAME, HIRE_DATE, PHONE, CONCAT(FORMAT(IFNULL(SALARY, 0), 0), '원') SALARY, FORMAT(IFNULL(SALARY*0.2, 0), 0) AS BONUS
+FROM EMPLOYEE
+WHERE YEAR(HIRE_DATE) BETWEEN '2016' AND '2017'
+ORDER BY EMP_ID DESC;
+
+
+-- [날짜 함수]
+-- CURdATE() : 년-월-일 형식으로 현재 날짜 출력
+-- SYSDATE(), NOW() : 년-월-일 시:분:초
+SELECT CURDATE() AS TODAY FROM DUAL;
+SELECT SYSDATE(), NOW() FROM DUAL;
+
+-- [형변환 함수]
+-- CAST(변환값 AS 데이터타입)
+-- CONVERT(변환값 AS 데이터타입) :: MYSQL OLD
+SELECT 123 AS NUMBER, CAST(123 AS CHAR) AS STR FROM DUAL;
+SELECT '1234'AS STR, CAST('1234' AS SIGNED INTEGER) AS NUMBER FROM DUAL;
+SELECT '20260421' AS STR, CAST('20260421' AS DATE) AS DATE FROM DUAL;
+
+-- NOW()
+SELECT NOW() AS DATE, CAST(NOW() AS CHAR) AS STR, CAST(CAST(NOW() AS CHAR) AS DATE) AS DATE1
+FROM DUAL;
+
+-- SIGNED INTEGER, UNSIGNED INTEGER
+SELECT '1234' AS STR, CAST('1234' AS SIGNED INTEGER) AS CAST_INT1, CAST('1234' AS UNSIGNED INTEGER) AS CAST_INT2,
+	CAST('1234' AS DECIMAL(10,2)) AS CAST_DECIMAL
+FROM DUAL;
+
+-- [문자열 치환 함수]
+-- REPLACE(문자열, OLD, NEW)
+SELECT REPLACE('홍-길-동','-','/') AS REPLACE_STR FROM DUAL;
+
+
+-- 사원테이블의 사번, 사원명, 입사일, 퇴사일, 부서아이디, 폰번호, 급여 조회
+-- 입사일, 퇴사일 출력은 '-' 을 '/'로 치환하여 출력
+-- 재직중인 사원은 현재날짜를 출력
+-- 급여 출력시 3자리 콤마(,) 구분
+SELECT EMP_ID, EMP_NAME, REPLACE(HIRE_DATE,'-','/') 입사일, 
+	REPLACE(IFNULL(RETIRE_DATE, CURDATE()),'-','/') 퇴사일, DEPT_ID, PHONE, FORMAT(SALARY, 0) AS SALARY
+FROM EMPLOYEE;
+
+-- '20150101' 입력된 날짜를 기준으로 해당 날짜 이후에 입사한 사원들을 모두 조회
+SELECT * FROM EMPLOYEE
+WHERE HIRE_DATE >= CAST('20150101' AS DATE)
+ORDER BY HIRE_DATE;
+
+-- '20150101' ~ '20171231' 사이에 입사한 사원들을 모두 조회
+SELECT * FROM EMPLOYEE
+WHERE HIRE_DATE BETWEEN CAST('20150101' AS DATE) AND CAST('20171231' AS DATE)
+ORDER BY HIRE_DATE;
+
+/******************************************************
+	집계(그룹) 함수 : SUM, AVG, COUNT, MIN, MAX...
+    GROUP BY : 그룹함수를 적용하기 위한 그룹핑 컬럼 정의
+    HAVING : 그룹함수에서 사용하는 조건절
+******************************************************/
+
+-- (1) SUM(숫자) : 전체 총합을 구하는 함수
+-- 사원 테이블의 총 급여를 조회
+SELECT SUM(SALARY) AS 총급여
+FROM EMPLOYEE;				-- NULL은 집계 함수에서 제외
+
+SELECT COUNT(*) FROM EMPLOYEE;			-- NULL 값이 포함된 20개
+SELECT COUNT(SALARY) FROM EMPLOYEE;  	-- NULL 값 제외한 19개
+
+-- (2) AVG(숫자) : 전체 평균을 구하는 함수
+-- 사원들의 전체 급여 평균을 조회
+SELECT CONCAT('$', FORMAT(AVG(IFNULL(SALARY, 0)), 0)) AS 급여평균 
+FROM EMPLOYEE;
+
+-- SYS부서 전체의 급여 총액과 평균 조회
+SELECT CONCAT(FORMAT(SUM(SALARY), 0), '만원') 급여총액, CONCAT(FORMAT(AVG(SALARY), 0), '만원') 평균급여
+FROM EMPLOYEE
+WHERE DEPT_ID = 'SYS'
+
+
+

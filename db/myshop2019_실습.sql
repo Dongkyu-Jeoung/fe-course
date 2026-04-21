@@ -155,63 +155,142 @@ ORDER BY EMPLOYEE_ID, ORDER_DATE DESC;
 	그룹함수
 **/
 /** customer 테이블 사용 **/
+DESC CUSTOMER;
 -- Q01) 고객의 포인트 합을 조회하세요.
+SELECT SUM(POINT)
+FROM CUSTOMER;
 
 -- Q02) '서울' 지역 고객의 포인트 합을 조회하세요.
+SELECT SUM(POINT)
+FROM CUSTOMER
+WHERE CITY = '서울';
 
 -- Q03) '서울' 지역 고객의 수를 조회하세요.
+SELECT COUNT(CUSTOMER_ID)
+FROM CUSTOMER
+WHERE CITY = '서울';
 
 -- Q04) '서울' 지역 고객의 포인트 합과 평균을 조회하세요.
-     
+SELECT SUM(POINT) AS 포인트합, AVG(POINT) 포인트평균
+FROM CUSTOMER
+WHERE CITY = '서울';
+
 -- Q05) '서울' 지역 고객의 포인트 합, 평균, 최댓값, 최솟값을 조회하세요.
+SELECT SUM(POINT) AS 포인트합, AVG(POINT) 포인트평균, MAX(POINT) 최대값, MIN(POINT) 최솟값
+FROM CUSTOMER
+WHERE CITY = '서울';
 
 -- Q06) 남녀별 고객의 수를 조회하세요.
+SELECT GENDER, COUNT(CUSTOMER_ID) AS 고객수
+FROM CUSTOMER
+GROUP BY GENDER;
 
 -- Q07) 지역별 고객의 수를 조회하세요.
 --      단, 지역 이름을 기준으로 오름차순 정렬해서 조회하세요.
-
+SELECT CITY, COUNT(CUSTOMER_ID) AS 고객수
+FROM CUSTOMER
+GROUP BY CITY
+ORDER BY CITY;
  
 -- Q08) 지역별 고객의 수를 조회하세요.
 --      단, 고객의 수가 10명 이상인 행만 지역 이름을 기준으로 오름차순 정렬해서 조회하세요.
-   
+SELECT CITY, COUNT(CUSTOMER_ID) AS 고객수
+FROM CUSTOMER
+GROUP BY CITY
+HAVING COUNT(CUSTOMER_ID) >=10;
     
 -- Q09) 남녀별 포인트 합을 조회하세요.
+SELECT GENDER, SUM(POINT)
+FROM CUSTOMER
+GROUP BY GENDER;
     
 -- Q10) 지역별 포인트 합을 조회하세요.
 --      단, 지역 이름을 기준으로 오름차순 정렬해서 조회하세요.
-    
+SELECT CITY, SUM(POINT)
+FROM CUSTOMER
+GROUP BY CITY
+ORDER BY CITY;    
+
 -- Q11) 지역별 포인트 합을 조회하세요.
 --      단, 포인트 합이 1,000,000 이상인 행만 포인트 합을 기준으로 내림차순 정렬해서 조회하세요.
-
+SELECT CITY, SUM(POINT) AS 포인트합
+FROM CUSTOMER
+GROUP BY CITY
+HAVING SUM(POINT)>=100000
+ORDER BY 포인트합 DESC;
       
 -- Q12) 지역별 포인트 합을 조회하세요.
 --      단, 포인트 합을 기준으로 내림차순 정렬해서 조회하세요.
-   
+SELECT CITY, SUM(POINT) AS 포인트합
+FROM CUSTOMER
+GROUP BY CITY
+ORDER BY 포인트합 DESC;   
 
 -- Q13) 지역별 고객의 수, 포인트 합을 조회하세요.
 --      단, 지역 이름을 기준으로 오름차순 정렬해서 조회하세요.
-
+SELECT CITY, COUNT(CUSTOMER_ID) 고객수, SUM(POINT) 포인트합
+FROM CUSTOMER
+GROUP BY CITY
+ORDER BY CITY;
 
 -- Q14) 지역별 포인트 합, 포인트 평균을 조회하세요.
 --      단, 포인트가 NULL이 아닌 고객을 대상으로 하며, 지역 이름을 기준으로 오름차순 정렬해서 조회하세요.
+SELECT CITY, SUM(POINT) 포인트합, AVG(POINT) 포인트평균
+FROM CUSTOMER
+WHERE POINT IS NOT NULL
+GROUP BY CITY
+ORDER BY CITY;
 
 -- Q15) '서울', '부산', '대구' 지역 고객의 지역별, 남녀별 포인트 합과 평균을 조회하세요.
 --      단, 지역 이름을 기준으로 오름차순, 같은 지역은 성별을 기준으로 오름차순 정렬해서 조회하세요.
-
+SELECT CITY, GENDER, SUM(POINT) 포인트합, AVG(POINT) 포인트평균
+FROM CUSTOMER
+WHERE CITY IN ('서울', '부산', '대구')
+GROUP BY CITY, GENDER
+ORDER BY CITY, GENDER;
 
 /** order_header 테이블 사용 **/
-    
+DESC ORDER_HEADER;
 -- Q16) 2019년 1월 주문에 대하여 고객아이디별 전체금액 합을 조회하세요.
-
+SELECT CUSTOMER_ID 고객아이디, SUM(TOTAL_DUE) 전체금액합
+FROM ORDER_HEADER
+WHERE ORDER_DATE BETWEEN '2019-01-01' AND '2019-01-31'
+GROUP BY CUSTOMER_ID;
 
 -- Q17) 주문연도별 전체금액 합계를 조회하세요.
+SELECT YEAR(ORDER_DATE) 주문연도, SUM(TOTAL_DUE) 전체금액합
+FROM ORDER_HEADER
+GROUP BY YEAR(ORDER_DATE);
 
 -- Q18) 2019.01 ~ 2019.06 기간 주문에 대하여 주문연도별, 주문월별 전체금액 합을 조회하세요.
+SELECT YEAR(ORDER_DATE) 연, MONTH(ORDER_DATE) 월, FORMAT(SUM(TOTAL_DUE), 0) 전체금액합
+FROM ORDER_HEADER
+WHERE YEAR(ORDER_DATE) = '2019'
+	AND MONTH(ORDER_DATE) BETWEEN '1' AND '6'
+GROUP BY YEAR(ORDER_DATE), MONTH(ORDER_DATE);
 
 -- Q19) 2019.01 ~ 2019.06 기간 주문에 대하여 주문연도별, 주문월별 전체금액 합과 평균을 조회하세요.
+SELECT YEAR(ORDER_DATE) 연, MONTH(ORDER_DATE) 월, FORMAT(SUM(TOTAL_DUE), 0) 전체금액합, FORMAT(AVG(TOTAL_DUE), 0) 평균
+FROM ORDER_HEADER
+WHERE YEAR(ORDER_DATE) = '2019'
+	AND MONTH(ORDER_DATE) BETWEEN '1' AND '6'
+GROUP BY YEAR(ORDER_DATE), MONTH(ORDER_DATE);
+
 
 -- Q20) 주문연도별, 주문월별 전체금액 합과 평균을 조회하고, rollup 함수를 이용하여 소계와 총계를 출력해주세요.
+SELECT IF(GROUPING(YEAR), '연도별 총합계', IFNULL(YEAR, '-')) 주문연도,
+		IF(GROUPING(MONTH), '월별 총합계', IFNULL(MONTH, '-')) 주문월,
+        SUM(TOTAL_DUE),
+        AVG(TOTAL_DUE)
+FROM (SELECT LEFT(ORDER_DATE, 4) YEAR,
+			SUBSTRING(ORDER_DATE, 6,2) MONTH,
+			TOTAL_DUE
+        FROM ORDER_HEADER ) T
+GROUP BY YEAR, MONTH WITH ROLLUP;
 
+SELECT YEAR(ORDER_DATE) 연, MONTH(ORDER_DATE) 월, SUM(TOTAL_DUE) 합, AVG(TOTAL_DUE) 평균
+FROM ORDER_HEADER
+GROUP BY YEAR(ORDER_DATE), MONTH(ORDER_DATE) WITH ROLLUP;
 
 /**
 	테이블 조인 : 기본 SQL 방식, ANSI SQL
