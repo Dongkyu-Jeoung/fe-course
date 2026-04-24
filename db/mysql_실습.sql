@@ -971,8 +971,303 @@ WHERE RETIRE_DATE = (
     FROM EMPLOYEE
 );
 
+-- 가장 많은 휴가를 사용한 사원이 속한 부서의 모든 사원들을 조회
+SELECT EMP_ID, SUM(DURATION)
+FROM VACATION
+GROUP BY EMP_ID
+HAVING SUM(DURATION) = (
+	SELECT MAX(SUM)
+	FROM (
+		SELECT SUM(DURATION) AS SUM
+		FROM VACATION
+		GROUP BY EMP_ID
+	) T
+);
+
+SELECT MAX(SUM)
+FROM (
+	SELECT SUM(DURATION) AS SUM
+	FROM VACATION
+	GROUP BY EMP_ID
+) T;
+
+-- 
+SELECT MAX(DURATION)
+FROM VACATION;
+
+SELECT EMP_ID
+FROM VACATION 
+WHERE DURATION = (
+	SELECT MAX(DURATION)
+	FROM VACATION
+);
+
+SELECT EMP_ID
+FROM VACATION
+ORDER BY DURATION LIMIT 1;
+
+SELECT DEPT_ID
+FROM EMPLOYEE
+WHERE EMP_ID = (
+	SELECT EMP_ID
+	FROM VACATION
+	ORDER BY DURATION LIMIT 1
+);
+
+SELECT *
+FROM EMPLOYEE
+WHERE DEPT_ID = (
+	SELECT DEPT_ID
+	FROM EMPLOYEE
+	WHERE EMP_ID = (
+		SELECT EMP_ID
+		FROM VACATION
+		ORDER BY DURATION LIMIT 1
+	)
+);
+
+SELECT D.DEPT_ID, D.DEPT_NAME
+FROM EMPLOYEE E, DEPARTMENT D, VACATION V
+WHERE E.DEPT_ID = D.DEPT_ID
+	AND E.EMP_ID = V.EMP_ID
+ORDER BY DURATION DESC LIMIT 1;
 
 
+-- [서브쿼리 : 다중행 - IN, ANY, EXISTS...]
+
+-- '제3본부'에 속한 모든 사원 정보 조회
+SELECT UNIT_ID
+FROM UNIT
+WHERE UNIT_NAME = '제3본부';
+
+SELECT DEPT_ID
+FROM DEPARTMENT
+WHERE UNIT_ID = (
+	SELECT UNIT_ID
+	FROM UNIT
+	WHERE UNIT_NAME = '제3본부'
+);
+
+SELECT *
+FROM EMPLOYEE
+WHERE DEPT_ID IN (
+	SELECT DEPT_ID
+	FROM DEPARTMENT
+	WHERE UNIT_ID = (
+		SELECT UNIT_ID
+		FROM UNIT
+		WHERE UNIT_NAME = '제3본부'
+	)
+);
+
+
+-- '제3본부'에 속한 모든 사원 휴가 사용 정보 조회
+SELECT *
+FROM VACATION
+WHERE EMP_ID IN (
+	SELECT EMP_ID
+	FROM EMPLOYEE
+	WHERE DEPT_ID IN (
+		SELECT DEPT_ID
+		FROM DEPARTMENT
+		WHERE UNIT_ID = (
+			SELECT UNIT_ID
+			FROM UNIT
+			WHERE UNIT_NAME = '제3본부'
+		)
+	)
+);
+
+-- 휴가를 한번이라도 사용한 모든 사원 조회
+SELECT *
+FROM EMPLOYEE E
+WHERE EXISTS (
+	SELECT 1
+    FROM VACATION V
+    WHERE V.EMP_ID = E.EMP_ID
+);
+
+-- [인라인 뷰 : 메인쿼리의 테이블자리(FROM)에 들어가는 서브쿼리 형식]
+-- 휴가를 사용한 사원의 정보만 출력
+-- 사원별 휴가 사용 일 수 그룹핑, 사원아이디, 사원명, 입사일, 급여, 휴가 사용 일수 조회
+
+SELECT EMP_ID, SUM(DURATION)
+FROM VACATION
+GROUP BY EMP_ID;
+
+SELECT E.EMP_ID, E.EMP_NAME, E.HIRE_DATE, E.SALARY, T.SUM_DURATION
+FROM EMPLOYEE E, 
+	(SELECT EMP_ID, SUM(DURATION) AS SUM_DURATION
+	FROM VACATION
+	GROUP BY EMP_ID) T
+WHERE E.EMP_ID = T.EMP_ID
+ORDER BY T.SUM_DURATION DESC;
+
+-- 사원별 휴가 사용 일 수 그룹핑, 사원아이디, 사원명, 입사일, 급여, 휴가 사용 일수 조회
+-- 휴가를 사용하지 않은 사원도 포함해주세요
+SELECT EMP_ID, SUM(DURATION)
+FROM VACATION
+GROUP BY EMP_ID;
+
+SELECT E.EMP_ID, E.EMP_NAME, E.HIRE_DATE, E.SALARY, IFNULL(T.SUM_DURATION, 0) AS '총 휴가 사용 일수'
+FROM EMPLOYEE E LEFT JOIN 
+	(SELECT EMP_ID, SUM(DURATION) AS SUM_DURATION
+	FROM VACATION
+	GROUP BY EMP_ID) T
+					ON E.EMP_ID = T.EMP_ID
+ORDER BY IFNULL(T.SUM_DURATION, 0) DESC;
+
+-- '2015' ~ '2017'년도 입사한 사원들의 휴가 사용 일 수 조회
+
+SELECT EMP_ID
+FROM EMPLOYEE
+WHERE YEAR(HIRE_DATE) BETWEEN '2015' AND '2017';
+
+SELECT T.EMP_ID, SUM(V.DURATION)
+FROM VACATION V, (
+	SELECT EMP_ID
+	FROM EMPLOYEE
+	WHERE YEAR(HIRE_DATE) BETWEEN '2015' AND '2017') T
+WHERE V.EMP_ID = T.EMP_ID
+GROUP BY V.EMP_ID;
+
+-- 1) 부서별 총급여, 평균급여 조회
+SELECT DEPT_ID, SUM(IFNULL(SALARY,0)) SUM, FLOOR(IFNULL(AVG(SALARY), 0)) AVG
+FROM EMPLOYEE E
+GROUP BY DEPT_ID;
+
+-- 2) 부서 테이블과 조인하여 모든 부서의 총 급여, 평균 급여 출력
+SELECT D.DEPT_ID, D.DEPT_NAME, IFNULL(T.SUM, 0) AS SUM, IFNULL(T.AVG, 0) AS AVG
+FROM DEPARTMENT D LEFT JOIN (
+					SELECT DEPT_ID, SUM(SALARY) SUM, FLOOR(AVG(SALARY)) AVG
+					FROM EMPLOYEE
+					GROUP BY DEPT_ID ) T
+					ON D.DEPT_ID = T.DEPT_ID
+ORDER BY T.AVG DESC;
+
+-- 3) 사원테이블 조인하여 사원명, 급여, 부서아이디, 부서명, 총급여, 평균급여 출력
+SELECT E.EMP_NAME, E.SALARY, V.DEPT_ID, V.DEPT_NAME, V.SUM, V.AVG
+FROM EMPLOYEE E LEFT JOIN (
+					SELECT D.DEPT_ID, D.DEPT_NAME, IFNULL(T.SUM, 0) AS SUM, IFNULL(T.AVG, 0) AS AVG
+					FROM DEPARTMENT D LEFT JOIN (
+										SELECT DEPT_ID, SUM(SALARY) SUM, FLOOR(AVG(SALARY)) AVG
+										FROM EMPLOYEE
+										GROUP BY DEPT_ID ) T 
+                                        ON D.DEPT_ID = T.DEPT_ID ) V
+					ON E.DEPT_ID = V.DEPT_ID
+ORDER BY DEPT_ID;
+    
+SELECT *, (SELECT SUM(SALARY) FROM EMPLOYEE WHERE DEPT_ID='SYS')
+FROM EMPLOYEE
+WHERE DEPT_ID = 'SYS';
+                        
+/******************************************************
+	테이블 결과 합치기 : UNION, UNION ALL
+    형식> [쿼리1 실행결과]
+		 UNION				-- 결과 : 중복제거
+		 [쿼리2 실행결과]
+         
+         [쿼리1 실행결과]
+		 UNION ALL			-- 결과 : 중복제거 X
+		 [쿼리2 실행결과]
+         
+	각 쿼리 실행 결과의 컬럼들 이름, 타입이 동일해야함
+******************************************************/
+
+-- 영업(MKT), 정보시스템(SYS) 부서의 사원아이디, 사원명, 급여, 부서아이디 조회
+SELECT EMP_ID, EMP_NAME, SALARY, DEPT_ID
+FROM EMPLOYEE
+WHERE DEPT_ID = 'MKT'
+UNION
+SELECT EMP_ID, EMP_NAME, SALARY, DEPT_ID
+FROM EMPLOYEE
+WHERE DEPT_ID = 'SYS';
+
+/******************************************************
+	논리적인 테이블 : 뷰(VIEW)
+    - SQL을 실행하여 생성된 결과를 가상테이블로 정의
+    - 생성) CREATE VIEW [VIEW NAME]
+			AS [ SQL 정의 ]
+	- 삭제) DROP VIEW [VIEW NAME]
+	VIEW 생성 시 권한을 할당 받아야 가능 => MYSQL, MARIA 제외 (기본적으로 됨)
+******************************************************/
+-- 시스템에 생성된 뷰 정보 확인
+-- INFORMATION_SCHEMA.VIEWS
+SELECT *
+FROM INFORMATION_SCHEMA.VIEWS
+WHERE TABLE_SCHEMA = 'hrdb2019';
+
+-- 부서 총 급여가 30000 이상인 뷰 정의
+CREATE VIEW SUM_SALARY
+AS SELECT DEPT_ID, SUM(SALARY) AS SUM
+	FROM EMPLOYEE
+	GROUP BY DEPT_ID
+	HAVING SUM(SALARY) >= 30000;
+
+-- SUM_SALARY 조회
+SELECT * FROM SUM_SALARY;
+
+-- SUM_SALARY 뷰 삭제
+DROP VIEW SUM_SALARY;
+
+
+CREATE VIEW EMP_DEPT_SUM
+AS
+	SELECT E.EMP_NAME, E.SALARY, V.DEPT_ID, V.DEPT_NAME, V.SUM, V.AVG
+	FROM EMPLOYEE E LEFT JOIN (
+						SELECT D.DEPT_ID, D.DEPT_NAME, IFNULL(T.SUM, 0) AS SUM, IFNULL(T.AVG, 0) AS AVG
+						FROM DEPARTMENT D LEFT JOIN (
+											SELECT DEPT_ID, SUM(SALARY) SUM, FLOOR(AVG(SALARY)) AVG
+											FROM EMPLOYEE
+											GROUP BY DEPT_ID ) T 
+											ON D.DEPT_ID = T.DEPT_ID ) V
+						ON E.DEPT_ID = V.DEPT_ID
+	ORDER BY DEPT_ID;
+    
+SELECT * FROM EMP_DEPT_SUM;
+
+-- EMP_DEPT_SUM 테이블에서 '홍길동' 사원의 정보 조회
+
+
+-- 사원별 전체 휴가 사용 일수, 부서 아이디, 부서명을 조회한 후 뷰로 생성
+create view v_emp_dept
+as
+select 	e.emp_id,
+		e.emp_name,
+        e.hire_date,
+        e.salary,
+        ifnull(v.duration, 0) as duration,
+        d.dept_id,
+        d.dept_name,
+        d.unit_id
+	from ( select emp_id, sum(duration) as duration
+			from vacation
+			group by emp_id ) v right outer join employee e
+		 on v.emp_id = e.emp_id
+         right outer join department d
+         on e.dept_id = d.dept_id;
+            
+select * from information_schema.views
+	where table_schema = 'hrdb2019';
+
+SELECT * FROM v_emp_dept;
+
+-- '제3본부' 소속 부서의 사원들 휴가 사용 일수 조회
+SELECT V.EMP_ID, V.EMP_NAME, V.DURATION, U.UNIT_NAME
+FROM v_emp_dept V, UNIT U
+WHERE V.UNIT_ID = U.UNIT_ID
+	AND U.UNIT_NAME = '제3본부';
+
+-- 휴가 사용 일수가 15일 이상 되는 사원들의 사원명, 부서아이디, 부서명, 본부아이디, 본부명
+SELECT *
+FROM v_emp_dept
+WHERE DURATION >= 15;
+
+SELECT V.EMP_NAME, V.DEPT_ID, V.DEPT_NAME, V.UNIT_ID, U.UNIT_NAME, V.DURATION
+FROM V_EMP_DEPT V, UNIT U
+WHERE V.UNIT_ID = U.UNIT_ID
+	AND V.DURATION >= 15
+ORDER BY DURATION DESC;
 
 
 
