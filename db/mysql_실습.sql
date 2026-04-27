@@ -1270,4 +1270,345 @@ WHERE V.UNIT_ID = U.UNIT_ID
 ORDER BY DURATION DESC;
 
 
+/**********************************************************
+	DDL(Data Definition Language) : 생성, 수정, 삭제 -> 테이블 기준
+    DML(Data Manipulation Language) : 생성, 읽기, 수정, 삭제 (CRUD) -> 데이터 기준
+    C(Create) - Insert
+    R(Read) - Select
+    U(Update) - Update
+    D(Delete) - Delete
+    
+***********************************************************/
+USE HRDB2019;
+SHOW TABLES;
 
+/**********************************************************
+	DDL(Data Definition Language) : 생성, 수정, 삭제 -> 테이블 기준
+    테이블 생성 형식>
+		CREATE TABLE [테이블명] (
+			컬럼명	데이터타입	  제약조건(널 포함 여부..)
+        )
+    데이터 타입 정리
+    분류			타입			크기/형식			설명			사용 예
+    -----------------------------------------------------------
+    정수형	  tinyint		1byte		 작은 정수 값	    상태값(0/1)
+			  smaillint     2byte		 				카운트
+			   int			4byte		  default		일반 정수 값
+			  bigint		8byte		  큰 정수 값		pk, 주문번호..
+              
+	실수형	  float			4byte		  부동 소수점		거의 사용 안함
+			  double		8byte		  default		통계 수치
+		
+	문자형      char			고정길이	   빠른공간확보/공간낭비	코드값
+    문자형      varchar		가변길이		가장 많이 사용		이름, 주소, ...
+    텍스트	  text			~ 64kB		긴 문장 저장		게시글
+			  longtext		~ 4GB		초대형 텍스트		로그..
+              
+	바이너리	  blob			~64, ~4GB	이미지파일, 파일 저장
+    
+    날짜		  date 			yyyy-mm-dd	    날짜  		생일
+			  datetime		date + 시분초	  날짜, 시간		
+              
+	JSON	  JSON			JSON 구조						API
+***********************************************************/
+DESC EMPLOYEE;
+
+-- EMP 테이블 생성
+-- EMP_ID(사번) : 4, E_NAME(사원명) : 5, HIRE_DATE(입사일) : DATE, SALARY(급여) : 4
+CREATE TABLE EMP (
+	EMP_ID		CHAR(4),			-- 0001, 0002
+	E_NAME		VARCHAR(5),
+    HIRE_DATE	DATE,
+    SALARY		INT
+);
+
+SHOW TABLES;
+DESC EMP;
+
+/**********************************************************
+	테이블 삭제
+    형식> DROP TABLE [테이블명];
+***********************************************************/
+SELECT * FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_NAME = 'EMP';
+
+DROP TABLE EMP;
+
+/**********************************************************
+	테이블 복제 (CAS)
+    형식> CREATE TABLE [테이블명]
+			AS [서브쿼리];
+***********************************************************/
+-- 2016년도 입사한 사원의 정보를 조회하여 EMPLOYEE_2016 테이블 생성
+CREATE TABLE EMPLOYEE_2016
+AS 
+	SELECT *
+	FROM EMPLOYEE
+	WHERE YEAR(HIRE_DATE) = '2016';
+    
+SHOW TABLES;
+
+SELECT * FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_NAME = 'EMPLOYEE_2016';
+
+DESC EMPLOYEE;
+DESC EMPLOYEE_2016;		-- 복제본은 원본의 KEY 제약사항(CONSTRAINT)을 복제하지 않음
+
+-- EMPLOYEE_DEPARTMENT 테이블 생성
+-- EMPLOYEE + DEPARTMENT 테이블 조인, DEPT_ID는 하나만 저장
+DESC DEPARTMENT;
+SELECT EMP_ID, EMP_NAME, ENG_NAME, GENDER, HIRE_DATE, RETIRE_DATE, E.DEPT_ID, PHONE, EMAIL, SALARY, DEPT_NAME, UNIT_ID, START_DATE
+FROM EMPLOYEE E, DEPARTMENT D
+WHERE E.DEPT_ID = D.DEPT_ID;
+
+CREATE TABLE EMPLOYEE_DEPARTMENT
+AS
+	SELECT EMP_ID, EMP_NAME, ENG_NAME, GENDER, HIRE_DATE, RETIRE_DATE, E.DEPT_ID, PHONE, EMAIL, SALARY, DEPT_NAME, UNIT_ID, START_DATE
+	FROM EMPLOYEE E, DEPARTMENT D
+	WHERE E.DEPT_ID = D.DEPT_ID;
+    
+SELECT * FROM INFORMATION_SCHEMA.TABLES
+WHERE TABLE_NAME = 'EMPLOYEE_DEPARTMENT';
+
+-- 테이블 구조만 복제할 때 사용
+SELECT * FROM EMPLOYEE
+WHERE 1 = 0;
+
+CREATE TABLE EMP
+AS
+	SELECT * FROM EMPLOYEE
+	WHERE 1 = 0;
+
+/**********************************************************
+	데이터 생성(CREATE :: INSERT)
+    형식> INSERT INTO [테이블명] (컬럼리스트...)   -- 컬럼리스트 생략 가능
+			VALUES(데이터1, 데이터2, ..)
+***********************************************************/
+INSERT INTO EMP (EMP_ID, EMP_NAME, ENG_NAME, GENDER, HIRE_DATE, RETIRE_DATE, DEPT_ID, PHONE, EMAIL, SALARY)
+	VALUES ('S0001', '홍길동', NULL, 'M', CURDATE(), NULL, 'SYS', '010-1234-1324', 'hong@naever.com', NULL);
+
+SELECT * FROM EMP;
+
+/**********************************************************
+	DDL - 테이블의 데이터 절삭(TRUNCATE), 데이터가 영구적으로 삭제
+    형식> TRUNCATE TABLE [테이블명];
+***********************************************************/
+SELECT * FROM EMP;
+TRUNCATE TABLE EMP;
+DROP TABLE EMP;
+
+
+-- EMP 생성 : EID(CHAR, 4), ENAME(VARCHAR,5), GENDER(CHAR,1), HIRE_DATE(DATETIME), SALARY(INT)
+-- EID, ENAME, GENDER 컬럼은 NULL을 허용하지 않음
+CREATE TABLE EMP (
+	EID 		CHAR(4) 	NOT NULL,
+    ENAME 		VARCHAR(5) 	NOT NULL,
+    GENDER 		CHAR(1) 	NOT NULL,
+    HIRE_DATE 	DATETIME,
+    SALARY 		INT
+) ;
+
+DESC EMP;
+
+INSERT INTO EMP(EID, ENAME, GENDER, HIRE_DATE, SALARY)
+	VALUES ('S001', '홍길동', 'M', NULL, NULL);
+    
+INSERT INTO EMP(EID, ENAME, GENDER)
+	VALUES ('S002', '이순신', 'M');
+    
+INSERT INTO EMP(GENDER, ENAME, EID, HIRE_DATE)
+	VALUES ('M', '김유신', 'S003', CURDATE());
+    
+INSERT INTO EMP(GENDER, ENAME, EID, HIRE_DATE, SALARY)
+	VALUES ('F', '홍길순', 'S004', SYSDATE(), 1000);
+    
+SELECT * FROM EMP;
+
+/**********************************************************
+	자동 번호 생성기 : AUTO_INCREMENT
+    - 테이블 생성시 옵션 자리에 기술, PK 컬럼에 주로 사용
+    - 반드시 PK / UNIQUE 제약 조건 같이 사용
+    형식> CREATE TABLE [테이블명] (
+		컬럼명		데이터타입		AUTO_INCREMENT ...
+    )
+***********************************************************/
+
+-- EMP2 생성 : EID(INT, 자동번호생성), ENAME(VARCHAR,5), GENDER(CHAR,1), HIRE_DATE(DATETIME), SALARY(INT)
+-- EID, ENAME, GENDER 컬럼은 NULL을 허용하지 않음 : NOT NULL
+
+CREATE TABLE EMP2 (
+	EID 		INT 		AUTO_INCREMENT,
+    ENAME 		VARCHAR(5) 	NOT NULL,
+    GENDER 		CHAR(1) 	NOT NULL,
+    HIRE_DATE 	DATETIME,
+    SALARY 		INT,
+    
+    PRIMARY KEY (EID)
+) ;
+
+DESC EMP2;
+
+
+INSERT INTO EMP2 (ENAME, GENDER) VALUES ('홍길동', 'M');
+INSERT INTO EMP2 (ENAME, GENDER, HIRE_DATE) VALUES ('이순신', 'M', NOW());
+INSERT INTO EMP2 (ENAME, GENDER, HIRE_DATE, SALARY) VALUES ('김유신', 'M', NOW(), 1500);
+
+SELECT * FROM EMP2;
+
+/**********************************************************
+		DDL - 테이블 변경 : ALTER TABLE
+        형식> ALTER TABLE [테이블명]
+				ADD COLUMN [NEW COLUMN, 데이터 타입]	-- NULL 허용
+                MODIFY COLUMN [MODIFY COLUMN, 데이터타입..]		-- 크기 고려
+                DROP COLUMN [DROP COLUMN]
+***********************************************************/
+SHOW TABLES;
+DESC EMP;
+
+-- EMP 테이블에 phone(CHAR,13,'-'포함) 컬럼 추가
+ALTER TABLE EMP
+	ADD COLUMN PHONE CHAR(13) ;
+    
+-- EMP 테이블의 컬럼의 크기를 20으로 변경
+ALTER TABLE EMP
+	MODIFY COLUMN PHONE CHAR(20);
+    
+SELECT * FROM EMP;
+
+-- ENAME 컬럼의 크기를 VARCHAR(2)로 변경
+-- 크기를 작게 변경하는 경우 데이터 유실 발생하므로 -> 에러
+ALTER TABLE EMP
+	MODIFY COLUMN ENAME VARCHAR(2);
+
+
+/**********************************************************
+		데이터 수정 : UPDATE
+        형식> UPDATE [테이블명]
+				SET [컬럼명=NEW데이터,...]
+                WHERE [조건절]
+		!! MYSQL은 UPDATE 권한 변경 후 진행
+        => SET SQL_SAFE_UPDATES = 0(허용) / 1(불가);
+***********************************************************/
+SELECT * FROM EMP;
+
+-- S001 사번의 폰번호 업데이트, 업데이트 모드 허용으로 수정
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE EMP
+	SET PHONE = '010-1234-5678'
+    WHERE EID = 'S001';
+
+-- 모든 사원의 폰번호를 '010-1111-1234' 수정
+UPDATE EMP
+	SET PHONE = '010-1111-1234';
+
+-- PHONE 컬럼의 NOT NULL 제약 추가
+ALTER TABLE EMP
+	MODIFY COLUMN PHONE CHAR(20) NOT NULL;
+
+-- EMP 테이블에 EMAIL 컬럼 추가 후 NOT NULL 제약 정의
+-- 1) 컬럼 추가 시 NULL 허용
+-- 2) UPDATE 명령으로 기존 데이터 추가
+-- 3) NOT NULL 제약 정의
+ALTER TABLE EMP
+	ADD COLUMN EMAIL VARCHAR(20);
+    
+UPDATE EMP
+	SET EMAIL = 'sadaf1@naver.com';
+
+ALTER TABLE EMP
+	MODIFY EMAIL VARCHAR(20) NOT NULL;
+
+DESC EMP;
+
+-- 
+CREATE TABLE COPY_EMP
+AS
+	SELECT * FROM EMPLOYEE;
+
+SHOW TABLES;
+DESC COPY_EMP;
+SELECT * FROM COPY_EMP;
+
+-- 홍길동 사원의 급여를 6000으로 수정
+UPDATE COPY_EMP
+	SET SALARY = 6000
+    WHERE EMP_NAME = '홍길동';
+    
+-- 안경태 사원의 입사일을 '20210705'로 수정
+UPDATE COPY_EMP
+	SET HIRE_DATE = '20210705'
+    WHERE EMP_NAME = '안경태';
+    
+-- (1) EMP2 테이블에 RETIRE_DATE 컬럼 추가 : DATE, NULL 허용
+-- (2) 기존 NULL 데이터를 현재날짜로 변경
+-- (3) RETIRE_DATE를 NOT NULL 제약 정의
+
+ALTER TABLE EMP2
+	ADD COLUMN RETIRE_DATE DATETIME;
+    
+UPDATE EMP2
+	SET RETIRE_DATE = SYSDATE();
+    
+ALTER TABLE EMP2
+	MODIFY COLUMN RETIRE_DATE DATETIME NOT NULL;
+
+SELECT * FROM EMP2;
+
+-- 정보시스템 부서의 모든 사원 급여를 20% 증가
+SELECT * FROM COPY_EMP WHERE DEPT_ID = 'SYS';
+
+UPDATE COPY_EMP
+	SET SALARY = SALARY + SALARY * 0.2
+    WHERE DEPT_ID = (SELECT DEPT_ID FROM DEPARTMENT WHERE DEPT_NAME = '정보시스템');
+    
+-- 'S0003'인 강우동 사원의 영어이름을 'KANG', 입사일은 현재날짜, 부서를 MKT로 변경
+SELECT * FROM COPY_EMP WHERE EMP_ID = 'S0003';
+
+UPDATE COPY_EMP
+	SET ENG_NAME = 'KANG', HIRE_DATE = CURDATE(), DEPT_ID = 'MKT'
+    WHERE EMP_ID = 'S0003';
+    
+-- 트랜잭션별 업데이트 정의
+-- 트랜잭션 관리 명령어 DTL : COMMIT(작업완료), ROLLBACK(작업복원)
+-- DML 명령어에 영향을 줌, DDL은 무조건 AUTO COMMIT
+SELECT @@AUTOCOMMIT;		-- 현재 트랜잭션 방식 확인 1:시스템에서 자동 트랜잭션 관리(바로 COMMIT)
+SET AUTOCOMMIT = 0;			-- 트랜잭션 관리 방식을 수동으로 전환
+
+SELECT * FROM EMP;
+
+COMMIT;     -- 이전 단계 까지를 COMMIT / 새로운 TRANSACTION 시작
+
+-- 홍길동의 급여를 3000으로 수정
+UPDATE EMP SET SALARY = 3000 WHERE EID ='S002';		-- 물리적 DB에 반영되기 전
+ROLLBACK;
+
+
+/**********************************************************
+		데이터 삭제 : DELETE
+        형식> DELETE FROM [테이블명]
+				WHERE [조건절]
+***********************************************************/
+-- EMP 테이블의 이순신, 홍길동 사원 삭제
+DELETE FROM EMP
+WHERE ENAME IN ('이순신', '홍길동');
+
+SELECT * FROM EMP;
+ROLLBACK;
+COMMIT;
+
+-- EMP 테이블의 모든 사원 삭제, TRUNCATE 명령어 사용
+TRUNCATE EMP;
+SELECT * FROM EMP;
+
+SET AUTOCOMMIT = 1;
+
+
+
+
+
+
+
+    
+    
+    
